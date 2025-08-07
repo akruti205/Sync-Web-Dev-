@@ -795,7 +795,7 @@
                 const rotateX = (y - centerY) / 20;
                 const rotateY = (centerX - x) / 20;
                 
-                card.style.transform = perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px);
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
             });
             
             card.addEventListener('mouseleave', () => {
