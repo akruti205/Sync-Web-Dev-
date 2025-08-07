@@ -1,369 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sync - Where Brains Meet Vibes | Collaborative Study Platform</title>
-    <meta name="description" content="Hyperlocal study platform connecting Gen-Z students for collaborative learning. Match with study partners, stream live sessions, and build academic communities.">
-    <meta name="keywords" content="study platform, collaborative learning, Gen-Z students, study groups, live streaming, academic community">
+    <meta name="description"
+        content="Hyperlocal study platform connecting Gen-Z students for collaborative learning. Match with study partners, stream live sessions, and build academic communities.">
+    <meta name="keywords"
+        content="study platform, collaborative learning, Gen-Z students, study groups, live streaming, academic community">
     <meta name="author" content="Team SyncIng">
-    <link rel="icon" type="image/x-icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTYiIGZpbGw9InVybCgjZ3JhZGllbnQwX2xpbmVhcl8xXzEpIi8+CjxwYXRoIGQ9Ik0xMiA4SDIwVjEySDEyVjhaTTggMTJIMTJWMTZIOFYxMlpNMjAgMTJIMjRWMTZIMjBWMTJaTTEyIDE2SDIwVjIwSDEyVjE2WiIgZmlsbD0id2hpdGUiLz4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0iZ3JhZGllbnQwX2xpbmVhcl8xXzEiIHgxPSIwIiB5MT0iMCIgeDI9IjMyIiB5Mj0iMzIiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iIzgwNTVGRiIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNDQjVCRkYiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8L3N2Zz4K">
+    <link rel="icon" type="image/x-icon"
+        href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTYiIGZpbGw9InVybCgjZ3JhZGllbnQwX2xpbmVhcl8xXzEpIi8+CjxwYXRoIGQ9Ik0xMiA4SDIwVjEySDEyVjhaTTggMTJIMTJWMTZIOFYxMlpNMjAgMTJIMjRWMTZIMjBWMTJaTTEyIDE2SDIwVjIwSDEyVjE2WiIgZmlsbD0id2hpdGUiLz4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0iZ3JhZGllbnQwX2xpbmVhcl8xXzEiIHgxPSIwIiB5MT0iMCIgeDI9IjMyIiB5Mj0iMzIiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iIzgwNTVGRiIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNDQjVCRkYiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8L3N2Zz4K">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --primary-purple: #8055FF;
-            --secondary-purple: #CB5BFF;
-            --accent-purple: #B147FF;
-            --neon-purple: #E879F9;
-            --dark-purple: #4C1D95;
-            --gradient-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --glass-bg: rgba(255, 255, 255, 0.1);
-            --glass-border: rgba(255, 255, 255, 0.2);
-        }
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="web dev css .css">
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.6;
-            color: #ffffff;
-            background: linear-gradient(135deg, #1a1b2e 0%, #16213e 50%, #0f3460 100%);
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        /* Glassmorphism Effect */
-        .glass {
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            border-radius: 1rem;
-        }
-
-        /* Neon Glow Effects */
-        .neon-glow {
-            box-shadow: 0 0 20px var(--neon-purple), 0 0 40px var(--neon-purple), 0 0 60px var(--neon-purple);
-        }
-
-        .neon-text {
-            text-shadow: 0 0 10px var(--neon-purple), 0 0 20px var(--neon-purple), 0 0 30px var(--neon-purple);
-        }
-
-        /* Animated Background */
-        .animated-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: linear-gradient(135deg, #1a1b2e 0%, #16213e 50%, #0f3460 100%);
-        }
-
-        .animated-bg::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 20% 50%, rgba(128, 85, 255, 0.3) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(203, 91, 255, 0.3) 0%, transparent 50%),
-                        radial-gradient(circle at 40% 80%, rgba(177, 71, 255, 0.3) 0%, transparent 50%);
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            33% { transform: translateY(-10px) rotate(1deg); }
-            66% { transform: translateY(5px) rotate(-1deg); }
-        }
-
-        /* Sync Logo Styling */
-        .sync-logo {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 800;
-            font-size: 4rem;
-            background: linear-gradient(135deg, var(--primary-purple), var(--secondary-purple), var(--neon-purple));
-            background-size: 300% 300%;
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: gradientShift 3s ease-in-out infinite;
-            letter-spacing: -0.05em;
-        }
-
-        @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-
-        /* Scroll Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(2rem);
-            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .slide-in-left {
-            opacity: 0;
-            transform: translateX(-3rem);
-            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        .slide-in-left.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .slide-in-right {
-            opacity: 0;
-            transform: translateX(3rem);
-            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        .slide-in-right.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        /* Interactive Elements */
-        .interactive-card {
-            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            cursor: pointer;
-        }
-
-        .interactive-card:hover {
-            transform: translateY(-0.5rem) scale(1.02);
-            box-shadow: 0 1rem 3rem rgba(128, 85, 255, 0.3);
-        }
-
-        /* Floating Icons */
-        .floating-icon {
-            position: absolute;
-            color: var(--neon-purple);
-            animation: floatIcon 4s ease-in-out infinite;
-            opacity: 0.7;
-        }
-
-        .floating-icon:nth-child(odd) {
-            animation-delay: -2s;
-        }
-
-        @keyframes floatIcon {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            25% { transform: translateY(-20px) rotate(5deg); }
-            50% { transform: translateY(-10px) rotate(-3deg); }
-            75% { transform: translateY(-30px) rotate(3deg); }
-        }
-
-        /* Number Counter Animation */
-        .counter {
-            font-weight: 800;
-            font-size: 2.5rem;
-            color: var(--neon-purple);
-            text-shadow: 0 0 10px var(--neon-purple);
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(135deg, var(--primary-purple), var(--secondary-purple));
-            border-radius: 4px;
-        }
-
-        /* Button Styles */
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary-purple), var(--secondary-purple));
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 2rem;
-            color: white;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(128, 85, 255, 0.4);
-        }
-
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .btn-primary:hover::before {
-            left: 100%;
-        }
-
-        /* Header */
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 1rem 0;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            background: rgba(26, 27, 46, 0.8);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .nav-link {
-            color: white;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 1rem;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-link:hover {
-            color: var(--neon-purple);
-            background: rgba(128, 85, 255, 0.1);
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            padding: 8rem 0 4rem;
-        }
-
-        .tagline {
-            font-size: 1.5rem;
-            color: var(--neon-purple);
-            margin: 1rem 0;
-            font-style: italic;
-        }
-
-        /* Feature Cards */
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 4rem 0;
-        }
-
-        .feature-card {
-            padding: 2rem;
-            border-radius: 1rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            color: var(--neon-purple);
-            margin-bottom: 1rem;
-        }
-
-        /* Stats Section */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin: 4rem 0;
-        }
-
-        .stat-card {
-            text-align: center;
-            padding: 2rem;
-            border-radius: 1rem;
-        }
-
-        /* Team Section */
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 4rem 0;
-        }
-
-        .team-card {
-            text-align: center;
-            padding: 2rem;
-            border-radius: 1rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .sync-logo {
-                font-size: 2.5rem;
-            }
-            
-            .container {
-                padding: 0 0.5rem;
-            }
-            
-            .feature-grid,
-            .stats-grid,
-            .team-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Skip Link for Accessibility */
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 6px;
-            background: var(--primary-purple);
-            color: white;
-            padding: 8px;
-            text-decoration: none;
-            z-index: 100;
-        }
-
-        .skip-link:focus {
-            top: 6px;
-        }
-    </style>
 </head>
+
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    
+
     <div class="animated-bg"></div>
 
     <!-- Floating Icons -->
@@ -398,8 +58,10 @@
                     <p class="tagline">(Because cramming alone is so yesterday)</p>
                     <h2 class="text-2xl md:text-4xl font-light mb-8">Where Brains meet Vibes</h2>
                     <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto opacity-90">
-                        Sync is a hyperlocal study platform that turns studying from a solo grind into a collaborative experience. 
-                        Think Hinge meets Discord meets a library, a platform where students connect, create, and conquer their academic goals together.
+                        Sync is a hyperlocal study platform that turns studying from a solo grind into a collaborative
+                        experience.
+                        Think Hinge meets Discord meets a library, a platform where students connect, create, and
+                        conquer their academic goals together.
                     </p>
                     <a href="#features" class="btn-primary">Explore Features</a>
                 </div>
@@ -410,7 +72,8 @@
         <section class="py-20">
             <div class="container">
                 <div class="fade-in">
-                    <h2 class="text-3xl md:text-5xl font-bold text-center mb-12 neon-text">The Problem We're Solving</h2>
+                    <h2 class="text-3xl md:text-5xl font-bold text-center mb-12 neon-text">The Problem We're Solving
+                    </h2>
                     <div class="grid md:grid-cols-2 gap-8">
                         <div class="slide-in-left glass p-8 interactive-card">
                             <div class="feature-icon"><i class="fas fa-user-times"></i></div>
@@ -525,14 +188,16 @@
                     <h2 class="text-3xl md:text-5xl font-bold text-center mb-12 neon-text">About Sync</h2>
                     <div class="max-w-4xl mx-auto text-center">
                         <p class="text-lg md:text-xl mb-8">
-                            Sync isn't just another study platform. It is a collaborative study platform designed to create 
+                            Sync isn't just another study platform. It is a collaborative study platform designed to
+                            create
                             a social network for serious students and make learning more efficient and engaging.
                         </p>
                         <p class="text-lg md:text-xl mb-8">
-                            By combining productivity tools with community features, Sync transforms solo studying into a 
+                            By combining productivity tools with community features, Sync transforms solo studying into
+                            a
                             shared, goal-driven experience that resonates with Gen-Z students.
                         </p>
-                        
+
                         <div class="glass p-8 mt-12">
                             <h3 class="text-2xl font-bold mb-6">Target Audience: "Gen-Z Students"</h3>
                             <div class="grid md:grid-cols-3 gap-6 text-left">
@@ -564,17 +229,24 @@
                         <div class="glass p-8 mb-8">
                             <h3 class="text-2xl font-bold mb-6">Why We Do What We Do</h3>
                             <p class="text-lg mb-6">
-                                At Sync, we believe that learning is fundamentally social. The traditional model of isolated study 
-                                sessions doesn't align with how Gen-Z students naturally learn and collaborate. We're not just 
-                                building a platform; we're fostering a movement that recognizes academic growth happens best in community.
+                                At Sync, we believe that learning is fundamentally social. The traditional model of
+                                isolated study
+                                sessions doesn't align with how Gen-Z students naturally learn and collaborate. We're
+                                not just
+                                building a platform; we're fostering a movement that recognizes academic growth happens
+                                best in community.
                             </p>
-                            
+
                             <h4 class="text-xl font-semibold mb-4 text-purple-300">What Drives Our Decisions:</h4>
                             <ul class="space-y-3 text-lg">
-                                <li><strong>Community First:</strong> Every feature is designed to strengthen connections between learners</li>
-                                <li><strong>Authentic Engagement:</strong> We prioritize meaningful interactions over vanity metrics</li>
-                                <li><strong>Accessibility:</strong> Learning tools should be available to everyone, regardless of background</li>
-                                <li><strong>Mental Health:</strong> Collaborative learning reduces isolation and academic anxiety</li>
+                                <li><strong>Community First:</strong> Every feature is designed to strengthen
+                                    connections between learners</li>
+                                <li><strong>Authentic Engagement:</strong> We prioritize meaningful interactions over
+                                    vanity metrics</li>
+                                <li><strong>Accessibility:</strong> Learning tools should be available to everyone,
+                                    regardless of background</li>
+                                <li><strong>Mental Health:</strong> Collaborative learning reduces isolation and
+                                    academic anxiety</li>
                             </ul>
                         </div>
 
@@ -583,11 +255,13 @@
                             <div class="grid md:grid-cols-2 gap-6">
                                 <div>
                                     <h4 class="font-bold text-lg mb-3 text-purple-300">Academic Isolation</h4>
-                                    <p>Students feeling disconnected from peers and struggling alone with complex topics</p>
+                                    <p>Students feeling disconnected from peers and struggling alone with complex topics
+                                    </p>
                                 </div>
                                 <div>
                                     <h4 class="font-bold text-lg mb-3 text-purple-300">Resource Fragmentation</h4>
-                                    <p>Quality study materials scattered across platforms without proper organization</p>
+                                    <p>Quality study materials scattered across platforms without proper organization
+                                    </p>
                                 </div>
                                 <div>
                                     <h4 class="font-bold text-lg mb-3 text-purple-300">Motivation Burnout</h4>
@@ -595,7 +269,8 @@
                                 </div>
                                 <div>
                                     <h4 class="font-bold text-lg mb-3 text-purple-300">Digital Divide</h4>
-                                    <p>Ensuring equal access to collaborative learning opportunities for all students</p>
+                                    <p>Ensuring equal access to collaborative learning opportunities for all students
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -603,9 +278,12 @@
                         <div class="glass p-8">
                             <h3 class="text-2xl font-bold mb-6">Our Vision for the Future</h3>
                             <p class="text-lg">
-                                We envision a world where every student has access to a supportive academic community that 
-                                celebrates their unique learning style, connects them with like-minded peers, and provides 
-                                the resources they need to succeed. Sync is just the beginning of a larger movement toward 
+                                We envision a world where every student has access to a supportive academic community
+                                that
+                                celebrates their unique learning style, connects them with like-minded peers, and
+                                provides
+                                the resources they need to succeed. Sync is just the beginning of a larger movement
+                                toward
                                 collaborative, inclusive, and joyful learning experiences.
                             </p>
                         </div>
@@ -623,7 +301,7 @@
                         <p class="text-lg"><strong>Team No.:</strong> B14</p>
                         <p class="text-lg"><strong>Team Name:</strong> Team SyncIng</p>
                     </div>
-                    
+
                     <div class="team-grid">
                         <div class="team-card glass interactive-card fade-in">
                             <div class="feature-icon"><i class="fas fa-code"></i></div>
@@ -685,7 +363,7 @@
                 <div class="fade-in text-center">
                     <h2 class="text-3xl md:text-5xl font-bold mb-8 neon-text">Ready to Sync Up?</h2>
                     <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
-                        Join thousands of students who are already transforming their study experience. 
+                        Join thousands of students who are already transforming their study experience.
                         Connect, collaborate, and conquer your academic goals with Sync.
                     </p>
                     <a href="#" class="btn-primary text-lg px-8 py-4">Join the Community</a>
@@ -701,10 +379,14 @@
                 <div class="sync-logo mb-6" style="font-size: 2.5rem;">Sync</div>
                 <p class="text-lg mb-6">Where Brains meet Vibes</p>
                 <div class="flex justify-center space-x-6 mb-6">
-                    <a href="#" class="text-2xl hover:text-purple-400 transition-colors"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="text-2xl hover:text-purple-400 transition-colors"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="text-2xl hover:text-purple-400 transition-colors"><i class="fab fa-discord"></i></a>
-                    <a href="#" class="text-2xl hover:text-purple-400 transition-colors"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" class="text-2xl hover:text-purple-400 transition-colors"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-2xl hover:text-purple-400 transition-colors"><i
+                            class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-2xl hover:text-purple-400 transition-colors"><i
+                            class="fab fa-discord"></i></a>
+                    <a href="#" class="text-2xl hover:text-purple-400 transition-colors"><i
+                            class="fab fa-tiktok"></i></a>
                 </div>
                 <p class="opacity-70">© 2024 Team SyncIng. Built with 💜 for the next generation of learners.</p>
             </div>
@@ -788,16 +470,16 @@
                 const rect = card.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
-                
+
                 const centerX = rect.width / 2;
                 const centerY = rect.height / 2;
-                
+
                 const rotateX = (y - centerY) / 20;
                 const rotateY = (centerX - x) / 20;
-                
+
                 card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
             });
-            
+
             card.addEventListener('mouseleave', () => {
                 card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
             });
@@ -816,12 +498,12 @@
                 opacity: 0.3;
                 animation: float 10s linear forwards;
             `;
-            
+
             element.style.left = Math.random() * window.innerWidth + 'px';
             element.style.top = window.innerHeight + 'px';
-            
+
             document.body.appendChild(element);
-            
+
             setTimeout(() => {
                 element.remove();
             }, 10000);
@@ -843,4 +525,5 @@
         document.head.appendChild(style);
     </script>
 </body>
+
 </html>
