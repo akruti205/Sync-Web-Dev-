@@ -121,6 +121,25 @@
                         </button>
                         <p id="generated-link" class="text-primary-purple text-sm mt-4 font-mono break-all hidden"></p>
                     </div>
+                    
+                    <script>
+                    document.getElementById("generate-link-btn").addEventListener("click", function () {
+                        // Generate a unique random room name
+                        const roomName = "SyncRoom_" + Math.random().toString(36).substr(2, 8);
+                    
+                        // Create the meeting link
+                        const link = `https://meet.jit.si/${roomName}`;
+                    
+                        // Display the link
+                        const generatedLinkElement = document.getElementById("generated-link");
+                        generatedLinkElement.textContent = link;
+                        generatedLinkElement.classList.remove("hidden");
+                    
+                        // Optional: make it clickable
+                        generatedLinkElement.innerHTML = `<a href="${link}" target="_blank" class="underline">${link}</a>`;
+                    });
+                    </script>
+
 
                     <!-- Feature 4: Smart Matching -->
                     <div class="card-glass p-8 animate-on-scroll" style="transition-delay: 0.4s;">
