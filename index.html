@@ -1,529 +1,296 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sync - Where Brains Meet Vibes | Collaborative Study Platform</title>
-    <meta name="description"
-        content="Hyperlocal study platform connecting Gen-Z students for collaborative learning. Match with study partners, stream live sessions, and build academic communities.">
-    <meta name="keywords"
-        content="study platform, collaborative learning, Gen-Z students, study groups, live streaming, academic community">
+    <title>Sync - Collaborative Study Platform</title>
+    <meta name="description" content="A dynamic and interactive hyperlocal study platform connecting Gen-Z students for collaborative learning. Features include smart study matching, live sessions, integrated Pomodoro timers, and Discord-like chatrooms.">
+    <meta name="keywords" content="study platform, collaborative learning, Gen-Z students, study groups, live streaming, academic community, Pomodoro timer, chatrooms, study partners, productivity app">
     <meta name="author" content="Team SyncIng">
-    <link rel="icon" type="image/x-icon"
-        href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTYiIGZpbGw9InVybCgjZ3JhZGllbnQwX2xpbmVhcl8xXzEpIi8+CjxwYXRoIGQ9Ik0xMiA4SDIwVjEySDEyVjhaTTggMTJIMTJWMTZIOFYxMlpNMjAgMTJIMjRWMTZIMjBWMTJaTTEyIDE2SDIwVjIwSDEyVjE2WiIgZmlsbD0id2hpdGUiLz4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0iZ3JhZGllbnQwX2xpbmVhcl8xXzEiIHgxPSIwIiB5MT0iMCIgeDI9IjMyIiB5Mj0iMzIiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iIzgwNTVGRiIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNDQjVCRkYiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8L3N2Zz4K">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTYiIGZpbGw9InVybCgjZ3JhZGllbnQwX2xpbmVhcl8xXzEpIi8+CjxwYXRoIGQ9Ik0xMiA4SDIwVjEySDEyVjhaTTggMTJIMTJWMTZIOFYxMlpNMjAgMTJIMjRWMTZIMjBWMTZaTTEyIDE2SDIwVjIwSDEyVjE2WiIgZmlsbD0id2hpdGUiLz4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudD4KPHN0b3Agc3RvcC1jb2xvcj0iIzgwNTVGRiIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNDQjVCRkYiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8L3N2Zz4K">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
-
+    
+    
 </head>
-
-<body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-
-    <div class="animated-bg"></div>
-
-    <!-- Floating Icons -->
-    <div class="floating-icon" style="top: 10%; left: 5%; font-size: 2rem;"><i class="fas fa-brain"></i></div>
-    <div class="floating-icon" style="top: 20%; right: 8%; font-size: 1.5rem;"><i class="fas fa-users"></i></div>
-    <div class="floating-icon" style="top: 60%; left: 3%; font-size: 1.8rem;"><i class="fas fa-lightbulb"></i></div>
-    <div class="floating-icon" style="top: 80%; right: 5%; font-size: 2.2rem;"><i class="fas fa-rocket"></i></div>
-    <div class="floating-icon" style="top: 40%; left: 90%; font-size: 1.6rem;"><i class="fas fa-star"></i></div>
+<body class="antialiased">
+    
+    <div class="animated-bg-particles"></div>
 
     <!-- Header -->
-    <header class="header" role="banner">
-        <nav class="container" role="navigation" aria-label="Main navigation">
-            <div class="flex justify-between items-center">
-                <div class="sync-logo" style="font-size: 2rem;">Sync</div>
-                <div class="hidden md:flex space-x-6">
-                    <a href="#home" class="nav-link">Home</a>
-                    <a href="#features" class="nav-link">Features</a>
-                    <a href="#about" class="nav-link">About</a>
-                    <a href="philosophy.html" class="nav-link">Philosophy</a>
-                    <a href="#team" class="nav-link">Team</a>
-                </div>
+    <header class="sticky top-0 z-50 py-4 backdrop-filter backdrop-blur-lg bg-dark-bg bg-opacity-70 border-b border-gray-800">
+        <nav class="container flex justify-between items-center">
+            <a href="#" class="logo-text text-3xl">Sync</a>
+            <div class="space-x-8 hidden md:flex">
+                <a href="#features" class="text-gray-300 hover:text-primary-purple transition-colors duration-300">Features</a>
+                <a href="#about" class="text-gray-300 hover:text-primary-purple transition-colors duration-300">About</a>
+                <a href="#team" class="text-gray-300 hover:text-primary-purple transition-colors duration-300">Team</a>
             </div>
+            <a href="#" class="btn-primary inline-block rounded-full px-6 py-2 font-semibold text-white">Join Sync</a>
         </nav>
     </header>
 
-    <main id="main-content">
+    <main>
         <!-- Hero Section -->
-        <section id="home" class="hero">
-            <div class="container">
-                <div class="fade-in">
-                    <h1 class="sync-logo neon-text">Sync</h1>
-                    <p class="tagline">(Because cramming alone is so yesterday)</p>
-                    <h2 class="text-2xl md:text-4xl font-light mb-8">Where Brains meet Vibes</h2>
-                    <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto opacity-90">
-                        Sync is a hyperlocal study platform that turns studying from a solo grind into a collaborative
-                        experience.
-                        Think Hinge meets Discord meets a library, a platform where students connect, create, and
-                        conquer their academic goals together.
-                    </p>
-                    <a href="#features" class="btn-primary">Explore Features</a>
+        <section class="min-h-screen flex items-center justify-center text-center py-24 relative overflow-hidden">
+            <div class="container animate-on-scroll">
+                <h1 class="logo-text text-6xl md:text-8xl font-black leading-tight mb-4 drop-shadow-lg">
+                    <small>Where Brains <br> Meet Vibes</small>
+                </h1>
+                <p class="text-lg md:text-2xl text-gray-400 mb-10 max-w-4xl mx-auto drop-shadow-md">
+                    The collaborative space for Gen-Z students to connect, study, and conquer academic goals together. Think of it as your digital study lounge.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                    <a href="#features" class="btn-primary inline-block rounded-full px-10 py-4 text-lg font-bold">Discover Features</a>
+                    <a href="#" class="inline-block rounded-full px-10 py-4 text-lg font-bold border-2 border-primary-purple text-primary-purple transition-colors duration-300 hover:bg-primary-purple hover:text-white">Sign Up Free</a>
                 </div>
             </div>
         </section>
 
-        <!-- Problem Statement -->
-        <section class="py-20">
+        <!-- Dynamic Features Section -->
+        <section id="features" class="py-24">
             <div class="container">
-                <div class="fade-in">
-                    <h2 class="text-3xl md:text-5xl font-bold text-center mb-12 neon-text">The Problem We're Solving
-                    </h2>
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div class="slide-in-left glass p-8 interactive-card">
-                            <div class="feature-icon"><i class="fas fa-user-times"></i></div>
-                            <h3 class="text-xl font-semibold mb-4">Isolated Study Sessions</h3>
-                            <p>Students are burnt out from studying alone without community support</p>
+                <h2 class="text-4xl font-bold text-center mb-16 animate-on-scroll">How We Make Studying Better</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Feature 1: Study Chatrooms -->
+                    <div class="card-glass p-8 animate-on-scroll" style="transition-delay: 0.1s;">
+                        <div class="text-5xl text-primary-purple mb-4"><i class="fab fa-discord"></i></div>
+                        <h3 class="text-2xl font-bold mb-2">Subject-Specific Chatrooms</h3>
+                        <p class="text-gray-400 mb-4">
+                            Join Discord-like channels for your specific classes. Ask questions, share notes, and debate concepts in real-time with peers from your college or major.
+                        </p>
+                        <div class="text-xs text-primary-purple font-semibold">#calculus-grind | #psych-101 | #coding-club</div>
+                    </div>
+                    
+                    <!-- Feature 2: Pomodoro Timer -->
+                    <div class="card-glass p-8 animate-on-scroll flex flex-col items-center justify-center text-center" style="transition-delay: 0.2s;">
+                        <div class="text-5xl text-neon-blue mb-4"><i class="fas fa-clock"></i></div>
+                        <h3 class="text-2xl font-bold mb-4">Integrated Pomodoro Timer</h3>
+                        <div class="timer-display mb-4">25:00</div>
+                        <div class="timer-controls space-x-4">
+                            <button id="start-timer">Start</button>
+                            <button id="pause-timer">Pause</button>
+                            <button id="reset-timer">Reset</button>
                         </div>
-                        <div class="slide-in-right glass p-8 interactive-card">
-                            <div class="feature-icon"><i class="fas fa-search"></i></div>
-                            <h3 class="text-xl font-semibold mb-4">Finding Study Partners</h3>
-                            <p>It's hard to find the right study group with compatible goals and schedules</p>
-                        </div>
-                        <div class="slide-in-left glass p-8 interactive-card">
-                            <div class="feature-icon"><i class="fas fa-puzzle-piece"></i></div>
-                            <h3 class="text-xl font-semibold mb-4">Scattered Resources</h3>
-                            <p>No centralised hub for quality study resources and materials</p>
-                        </div>
-                        <div class="slide-in-right glass p-8 interactive-card">
-                            <div class="feature-icon"><i class="fas fa-comments"></i></div>
-                            <h3 class="text-xl font-semibold mb-4">Coordination Chaos</h3>
-                            <p>Group study coordination is a hot mess of group chats and confusion</p>
+                        <p class="text-gray-400 text-sm mt-4">Boost focus by breaking down study time into manageable intervals.</p>
+                    </div>
+
+                    <!-- Feature 3: Live Group Study -->
+                    <div class="card-glass p-8 animate-on-scroll flex flex-col items-center justify-center text-center" style="transition-delay: 0.3s;">
+                        <div class="text-5xl text-secondary-purple mb-4"><i class="fas fa-link"></i></div>
+                        <h3 class="text-2xl font-bold mb-4">Random Study Group Generator</h3>
+                        <p class="text-gray-400 mb-4">
+                            Feeling spontaneous? Click a button to instantly create a secure meet link for a quick, anonymous study session with peers.
+                        </p>
+                        <button id="generate-link-btn" class="btn-primary inline-block rounded-full px-6 py-2 text-sm font-semibold mt-2">
+                            Generate Link
+                        </button>
+                        <p id="generated-link" class="text-primary-purple text-sm mt-4 font-mono break-all hidden"></p>
+                    </div>
+
+                    <!-- Feature 4: Smart Matching -->
+                    <div class="card-glass p-8 animate-on-scroll" style="transition-delay: 0.4s;">
+                        <div class="text-5xl text-primary-purple mb-4"><i class="fas fa-handshake"></i></div>
+                        <h3 class="text-2xl font-bold mb-2">AI Study Partner Matching</h3>
+                        <p class="text-gray-400 mb-4">
+                            Find your perfect academic match. Our algorithm connects you with students who share your courses, goals, and learning style, making collaboration effortless.
+                        </p>
+                        <div class="text-xs text-gray-500 font-medium">#cs-50 | #project-lead | #night-owl</div>
+                    </div>
+
+                    <!-- Feature 5: Achievements -->
+                    <div class="card-glass p-8 animate-on-scroll" style="transition-delay: 0.5s;">
+                        <div class="text-5xl text-neon-blue mb-4"><i class="fas fa-star-half-alt"></i></div>
+                        <h3 class="text-2xl font-bold mb-2">Gamified Learning & Achievements</h3>
+                        <p class="text-gray-400 mb-4">
+                            Stay motivated with badges like 'Night Owl Scholar' and 'Group Project MVP'. Earn points, track your study streaks, and celebrate milestones with your community.
+                        </p>
+                        <div class="flex items-center space-x-2 text-sm text-gray-500 font-medium">
+                            <span class="bg-gray-700 rounded-full px-3 py-1">50 hours logged</span>
+                            <span class="bg-gray-700 rounded-full px-3 py-1">Study Streak: 7 days</span>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Stats Section -->
-        <section class="py-20">
-            <div class="container">
-                <div class="fade-in">
-                    <h2 class="text-3xl md:text-5xl font-bold text-center mb-12 neon-text">By the Numbers</h2>
-                    <div class="stats-grid">
-                        <div class="stat-card glass">
-                            <div class="counter" data-target="50000">0</div>
-                            <p class="text-lg font-medium">Active Students</p>
-                        </div>
-                        <div class="stat-card glass">
-                            <div class="counter" data-target="10000">0</div>
-                            <p class="text-lg font-medium">Study Sessions</p>
-                        </div>
-                        <div class="stat-card glass">
-                            <div class="counter" data-target="95">0</div>
-                            <p class="text-lg font-medium">Match Success Rate %</p>
-                        </div>
-                        <div class="stat-card glass">
-                            <div class="counter" data-target="500">0</div>
-                            <p class="text-lg font-medium">Universities</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Features Section -->
-        <section id="features" class="py-20">
-            <div class="container">
-                <div class="fade-in">
-                    <h2 class="text-3xl md:text-5xl font-bold text-center mb-12 neon-text">Key Features</h2>
-                    <div class="feature-grid">
-                        <div class="feature-card glass interactive-card fade-in">
-                            <div class="feature-icon"><i class="fas fa-user-graduate"></i></div>
-                            <h3 class="text-2xl font-bold mb-4">Student Portfolio Profiles</h3>
-                            <ul class="space-y-2">
-                                <li>• Showcases projects, achievements, and study streaks</li>
-                                <li>• Study Stats Dashboard with hours logged and goals</li>
-                                <li>• Peer Reviews for study partners</li>
-                                <li>• Achievement badges like 'Night Owl Scholar' & 'Group Project MVP'</li>
-                            </ul>
-                        </div>
-
-                        <div class="feature-card glass interactive-card fade-in">
-                            <div class="feature-icon"><i class="fas fa-book-open"></i></div>
-                            <h3 class="text-2xl font-bold mb-4">Curated Study Resources</h3>
-                            <ul class="space-y-2">
-                                <li>• Personal academic content organization</li>
-                                <li>• Crowd-sourced materials and study guides</li>
-                                <li>• Quality-checked resources</li>
-                                <li>• Subject-specific libraries</li>
-                            </ul>
-                        </div>
-
-                        <div class="feature-card glass interactive-card fade-in">
-                            <div class="feature-icon"><i class="fas fa-video"></i></div>
-                            <h3 class="text-2xl font-bold mb-4">Live Study Streaming</h3>
-                            <ul class="space-y-2">
-                                <li>• Study-With-Me Sessions with chat interaction</li>
-                                <li>• Subject-Specific Channels like '#calculus-grind'</li>
-                                <li>• <a href="Pomodoro.c">Sync Sessions</a></li>
-                                <li>• Virtual Study Rooms with whiteboards</li>
-                            </ul>
-                        </div>
-
-                        <div class="feature-card glass interactive-card fade-in">
-                            <div class="feature-icon"><i class="fas fa-university"></i></div>
-                            <h3 class="text-2xl font-bold mb-4">College-Wise Communities</h3>
-                            <ul class="space-y-2">
-                                <li>• Campus-Specific Hubs for each college</li>
-                                <li>• Department Channels for major-specific groups</li>
-                                <li>• Event Integration for campus activities</li>
-                                <li>• Local Study Spot Reviews</li>
-                            </ul>
-                        </div>
+                    
+                    <!-- Feature 6: Campus Hubs -->
+                    <div class="card-glass p-8 animate-on-scroll" style="transition-delay: 0.6s;">
+                        <div class="text-5xl text-secondary-purple mb-4"><i class="fas fa-university"></i></div>
+                        <h3 class="text-2xl font-bold mb-2">Hyperlocal Campus Hubs</h3>
+                        <p class="text-gray-400 mb-4">
+                            Connect with students on your campus. Discover local study spots, find project teammates, and get real-time updates on college events.
+                        </p>
+                        <div class="text-xs text-gray-500 font-medium">University of Delhi | Stanford University | IIM Indore</div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- About Section -->
-        <section id="about" class="py-20">
-            <div class="container">
-                <div class="fade-in">
-                    <h2 class="text-3xl md:text-5xl font-bold text-center mb-12 neon-text">About Sync</h2>
-                    <div class="max-w-4xl mx-auto text-center">
-                        <p class="text-lg md:text-xl mb-8">
-                            Sync isn't just another study platform. It is a collaborative study platform designed to
-                            create
-                            a social network for serious students and make learning more efficient and engaging.
-                        </p>
-                        <p class="text-lg md:text-xl mb-8">
-                            By combining productivity tools with community features, Sync transforms solo studying into
-                            a
-                            shared, goal-driven experience that resonates with Gen-Z students.
-                        </p>
-
-                        <div class="glass p-8 mt-12">
-                            <h3 class="text-2xl font-bold mb-6">Target Audience: "Gen-Z Students"</h3>
-                            <div class="grid md:grid-cols-3 gap-6 text-left">
-                                <div>
-                                    <h4 class="font-bold text-lg mb-3 text-purple-300">Primary</h4>
-                                    <p>College students (18-24) seeking academic community</p>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-lg mb-3 text-purple-300">Secondary</h4>
-                                    <p>Graduate students, professional exam prep students</p>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-lg mb-3 text-purple-300">Psychographics</h4>
-                                    <p>Digitally native, collaboration-focused, achievement-oriented</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Philosophy Section -->
-        <section id="philosophy" class="py-20">
-            <div class="container">
-                <div class="fade-in">
-                    <h2 class="text-3xl md:text-5xl font-bold text-center mb-12 neon-text">Our Philosophy</h2>
-                    <div class="max-w-4xl mx-auto">
-                        <div class="glass p-8 mb-8">
-                            <h3 class="text-2xl font-bold mb-6">Why We Do What We Do</h3>
-                            <p class="text-lg mb-6">
-                                At Sync, we believe that learning is fundamentally social. The traditional model of
-                                isolated study
-                                sessions doesn't align with how Gen-Z students naturally learn and collaborate. We're
-                                not just
-                                building a platform; we're fostering a movement that recognizes academic growth happens
-                                best in community.
-                            </p>
-
-                            <h4 class="text-xl font-semibold mb-4 text-purple-300">What Drives Our Decisions:</h4>
-                            <ul class="space-y-3 text-lg">
-                                <li><strong>Community First:</strong> Every feature is designed to strengthen
-                                    connections between learners</li>
-                                <li><strong>Authentic Engagement:</strong> We prioritize meaningful interactions over
-                                    vanity metrics</li>
-                                <li><strong>Accessibility:</strong> Learning tools should be available to everyone,
-                                    regardless of background</li>
-                                <li><strong>Mental Health:</strong> Collaborative learning reduces isolation and
-                                    academic anxiety</li>
-                            </ul>
-                        </div>
-
-                        <div class="glass p-8 mb-8">
-                            <h3 class="text-2xl font-bold mb-6">Concerns We Address</h3>
-                            <div class="grid md:grid-cols-2 gap-6">
-                                <div>
-                                    <h4 class="font-bold text-lg mb-3 text-purple-300">Academic Isolation</h4>
-                                    <p>Students feeling disconnected from peers and struggling alone with complex topics
-                                    </p>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-lg mb-3 text-purple-300">Resource Fragmentation</h4>
-                                    <p>Quality study materials scattered across platforms without proper organization
-                                    </p>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-lg mb-3 text-purple-300">Motivation Burnout</h4>
-                                    <p>Lack of accountability and community support leading to abandoned study goals</p>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-lg mb-3 text-purple-300">Digital Divide</h4>
-                                    <p>Ensuring equal access to collaborative learning opportunities for all students
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="glass p-8">
-                            <h3 class="text-2xl font-bold mb-6">Our Vision for the Future</h3>
-                            <p class="text-lg">
-                                We envision a world where every student has access to a supportive academic community
-                                that
-                                celebrates their unique learning style, connects them with like-minded peers, and
-                                provides
-                                the resources they need to succeed. Sync is just the beginning of a larger movement
-                                toward
-                                collaborative, inclusive, and joyful learning experiences.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+        <section id="about" class="py-24">
+            <div class="container max-w-4xl mx-auto text-center">
+                <a href="philosophy.html"><h2 class="text-4xl font-bold mb-8 animate-on-scroll">Our Philosophy</h2></a>
+                <p class="text-lg md:text-xl text-gray-400 mb-8 animate-on-scroll">
+                    We believe that *learning is fundamentally social*. The traditional model of isolated study sessions is outdated. Sync is designed to be the modern-day library, a vibrant, digital hub where collaboration is at the core of every academic journey.
+                </p>
             </div>
         </section>
 
         <!-- Team Section -->
-        <section id="team" class="py-20">
+        <section id="team" class="py-24">
             <div class="container">
-                <div class="fade-in">
-                    <h2 class="text-3xl md:text-5xl font-bold text-center mb-12 neon-text">Meet Team SyncIng</h2>
-                    <div class="text-center mb-8">
-                        <p class="text-lg"><strong>Team No.:</strong> B14</p>
-                        <p class="text-lg"><strong>Team Name:</strong> Team SyncIng</p>
+                <h2 class="text-4xl font-bold text-center mb-16 animate-on-scroll">Meet Team SyncIng</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Team members with more professional images/placeholders -->
+                    <div class="card-glass p-8 text-center animate-on-scroll" style="transition-delay: 0.1s;">
+                        <img src="https://placehold.co/150x150/a855f7/ffffff?text=AM" alt="Akruti Mishra" class="rounded-full mx-auto w-24 h-24 mb-4 border-2 border-primary-purple shadow-lg">
+                        <h3 class="text-xl font-bold">Akruti Mishra</h3>
+                        <p class="text-gray-400">Full-Stack Developer</p>
+                        <p class="text-sm text-gray-500 mt-1">IPM05075</p>
                     </div>
-
-                    <div class="team-grid">
-                        <div class="team-card glass interactive-card fade-in">
-                            <div class="feature-icon"><i class="fas fa-code"></i></div>
-                            <h3 class="text-xl font-bold mb-2">Akruti Mishra</h3>
-                            <p class="text-purple-300 mb-4">IPM05075</p>
-                            <p>Full-Stack Developer & UI/UX Designer</p>
-                        </div>
-
-                        <div class="team-card glass interactive-card fade-in">
-                            <div class="feature-icon"><i class="fas fa-palette"></i></div>
-                            <h3 class="text-xl font-bold mb-2">Ananya Gautam</h3>
-                            <p class="text-purple-300 mb-4">IPM05077</p>
-                            <p>Product Designer & User Research</p>
-                        </div>
-
-                        <div class="team-card glass interactive-card fade-in">
-                            <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
-                            <h3 class="text-xl font-bold mb-2">Angel Sidhu</h3>
-                            <p class="text-purple-300 mb-4">IPM05078</p>
-                            <p>Data Analyst & Growth Strategy</p>
-                        </div>
-
-                        <div class="team-card glass interactive-card fade-in">
-                            <div class="feature-icon"><i class="fas fa-lightbulb"></i></div>
-                            <h3 class="text-xl font-bold mb-2">Ananya Jain</h3>
-                            <p class="text-purple-300 mb-4">IPM05160</p>
-                            <p>Product Manager & Innovation Lead</p>
-                        </div>
+                    <div class="card-glass p-8 text-center animate-on-scroll" style="transition-delay: 0.2s;">
+                        <img src="https://placehold.co/150x150/c084fc/ffffff?text=AG" alt="Ananya Gautam" class="rounded-full mx-auto w-24 h-24 mb-4 border-2 border-secondary-purple shadow-lg">
+                        <h3 class="text-xl font-bold">Ananya Gautam</h3>
+                        <p class="text-gray-400">Product Designer</p>
+                        <p class="text-sm text-gray-500 mt-1">IPM05077</p>
                     </div>
-
-                    <div class="mt-16 glass p-8">
-                        <h3 class="text-2xl font-bold text-center mb-8">Engagement KPIs</h3>
-                        <div class="grid md:grid-cols-4 gap-6">
-                            <div class="text-center">
-                                <div class="feature-icon"><i class="fas fa-calendar-check"></i></div>
-                                <h4 class="font-bold">Daily Active Study Sessions</h4>
-                            </div>
-                            <div class="text-center">
-                                <div class="feature-icon"><i class="fas fa-handshake"></i></div>
-                                <h4 class="font-bold">Match Success Rate</h4>
-                            </div>
-                            <div class="text-center">
-                                <div class="feature-icon"><i class="fas fa-download"></i></div>
-                                <h4 class="font-bold">Resource Usage</h4>
-                            </div>
-                            <div class="text-center">
-                                <div class="feature-icon"><i class="fas fa-users"></i></div>
-                                <h4 class="font-bold">Community Growth</h4>
-                            </div>
-                        </div>
+                    <div class="card-glass p-8 text-center animate-on-scroll" style="transition-delay: 0.3s;">
+                        <img src="https://placehold.co/150x150/6366f1/ffffff?text=AS" alt="Angel Sidhu" class="rounded-full mx-auto w-24 h-24 mb-4 border-2 border-neon-blue shadow-lg">
+                        <h3 class="text-xl font-bold">Angel Sidhu</h3>
+                        <p class="text-gray-400">Data & Growth Analyst</p>
+                        <p class="text-sm text-gray-500 mt-1">IPM05078</p>
+                    </div>
+                    <div class="card-glass p-8 text-center animate-on-scroll" style="transition-delay: 0.4s;">
+                        <img src="https://placehold.co/150x150/a855f7/ffffff?text=AJ" alt="Ananya Jain" class="rounded-full mx-auto w-24 h-24 mb-4 border-2 border-primary-purple shadow-lg">
+                        <h3 class="text-xl font-bold">Ananya Jain</h3>
+                        <p class="text-gray-400">Product Manager</p>
+                        <p class="text-sm text-gray-500 mt-1">IPM05160</p>
                     </div>
                 </div>
             </div>
         </section>
-
+        
         <!-- CTA Section -->
-        <section class="py-20">
-            <div class="container">
-                <div class="fade-in text-center">
-                    <h2 class="text-3xl md:text-5xl font-bold mb-8 neon-text">Ready to Sync Up?</h2>
-                    <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
-                        Join thousands of students who are already transforming their study experience.
-                        Connect, collaborate, and conquer your academic goals with Sync.
-                    </p>
-                    <a href="#" class="btn-primary text-lg px-8 py-4">Join the Community</a>
-                </div>
+        <section class="py-24 text-center">
+            <div class="container animate-on-scroll">
+                <h2 class="text-4xl font-bold mb-4">Ready to Sync Up?</h2>
+                <p class="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+                    Join thousands of students and transform your academic journey. Connect, collaborate, and conquer with Sync.
+                </p>
+                <a href="#" class="btn-primary inline-block rounded-full px-10 py-4 text-lg font-bold">Join the Community</a>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="py-12 glass mt-20" role="contentinfo">
+    <footer class="py-12 bg-dark-card text-center text-gray-400 border-t border-gray-800">
         <div class="container">
-            <div class="text-center">
-                <div class="sync-logo mb-6" style="font-size: 2.5rem;">Sync</div>
-                <p class="text-lg mb-6">Where Brains meet Vibes</p>
-                <div class="flex justify-center space-x-6 mb-6">
-                    <a href="#" class="text-2xl hover:text-purple-400 transition-colors"><i
-                            class="fab fa-instagram"></i></a>
-                    <a href="#" class="text-2xl hover:text-purple-400 transition-colors"><i
-                            class="fab fa-twitter"></i></a>
-                    <a href="#" class="text-2xl hover:text-purple-400 transition-colors"><i
-                            class="fab fa-discord"></i></a>
-                    <a href="#" class="text-2xl hover:text-purple-400 transition-colors"><i
-                            class="fab fa-tiktok"></i></a>
-                </div>
-                <p class="opacity-70">© 2024 Team SyncIng. Built with 💜 for the next generation of learners.</p>
+            <div class="logo-text text-3xl mb-4">Sync</div>
+            <p class="mb-4">Where Brains Meet Vibes</p>
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="#" class="text-2xl hover:text-primary-purple transition-colors"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-2xl hover:text-primary-purple transition-colors"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-2xl hover:text-primary-purple transition-colors"><i class="fab fa-discord"></i></a>
+                <a href="#" class="text-2xl hover:text-primary-purple transition-colors"><i class="fab fa-tiktok"></i></a>
             </div>
+            <p class="text-sm opacity-70">&copy; 2024 Team SyncIng. Built with passion for the next generation of learners.</p>
         </div>
     </footer>
 
     <script>
-        // Intersection Observer for scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+        // --- Floating Particles Background JS ---
+        const particleContainer = document.querySelector('.animated-bg-particles');
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            const size = Math.random() * 20 + 10 + 'px';
+            particle.style.width = size;
+            particle.style.height = size;
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 10 + 's';
+            particle.style.animationDuration = Math.random() * 20 + 10 + 's';
+            particleContainer.appendChild(particle);
 
+            setTimeout(() => particle.remove(), 30000); // Remove after animation
+        }
+        setInterval(createParticle, 500);
+
+
+        // --- Intersection Observer for scroll-triggered animations ---
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    entry.target.classList.add('is-visible');
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.2 });
 
-        // Observe all animated elements
-        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
             observer.observe(el);
         });
 
-        // Counter Animation
-        function animateCounters() {
-            const counters = document.querySelectorAll('.counter');
-            const speed = 200;
+        // --- Pomodoro Timer Logic ---
+        const timerDisplay = document.querySelector('.timer-display');
+        const startBtn = document.getElementById('start-timer');
+        const pauseBtn = document.getElementById('pause-timer');
+        const resetBtn = document.getElementById('reset-timer');
+        
+        let timerInterval;
+        let isPaused = true;
+        let timeLeft = 25 * 60; // 25 minutes in seconds
 
-            counters.forEach(counter => {
-                const animate = () => {
-                    const value = +counter.getAttribute('data-target');
-                    const data = +counter.innerText;
-                    const time = value / speed;
+        function updateTimerDisplay() {
+            const minutes = String(Math.floor(timeLeft / 60)).padStart(2, '0');
+            const seconds = String(timeLeft % 60).padStart(2, '0');
+            timerDisplay.textContent = ${minutes}:${seconds};
+        }
 
-                    if (data < value) {
-                        counter.innerText = Math.ceil(data + time);
-                        setTimeout(animate, 1);
+        function startTimer() {
+            if (isPaused) {
+                isPaused = false;
+                timerInterval = setInterval(() => {
+                    if (timeLeft > 0) {
+                        timeLeft--;
+                        updateTimerDisplay();
                     } else {
-                        counter.innerText = value;
+                        clearInterval(timerInterval);
+                        isPaused = true;
+                        timerDisplay.textContent = "Time's up!";
                     }
-                };
-                animate();
-            });
-        }
-
-        // Trigger counter animation when stats section is visible
-        const statsSection = document.querySelector('.stats-grid');
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateCounters();
-                    statsObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        if (statsSection) {
-            statsObserver.observe(statsSection);
-        }
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Interactive card hover effects with mouse tracking
-        document.querySelectorAll('.interactive-card').forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-
-                const rotateX = (y - centerY) / 20;
-                const rotateY = (centerX - x) / 20;
-
-                card.style.transform = perspective(1000px) rotateX(${ rotateX }deg) rotateY(${ rotateY }deg) translateZ(10px);
-            });
-
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
-            });
-        });
-
-        // Add some random floating elements
-        function createFloatingElement() {
-            const symbols = ['✨', '💜', '🧠', '⚡', '🚀', '💡'];
-            const element = document.createElement('div');
-            element.textContent = symbols[Math.floor(Math.random() * symbols.length)];
-            element.style.cssText = `
-                position: fixed;
-                font-size: 1.5rem;
-                pointer-events: none;
-                z-index: -1;
-                opacity: 0.3;
-                animation: float 10s linear forwards;
-            `;
-
-            element.style.left = Math.random() * window.innerWidth + 'px';
-            element.style.top = window.innerHeight + 'px';
-
-            document.body.appendChild(element);
-
-            setTimeout(() => {
-                element.remove();
-            }, 10000);
-        }
-
-        // Create floating elements periodically
-        setInterval(createFloatingElement, 3000);
-
-        // Add CSS animation for floating elements
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes float {
-                to {
-                    transform: translateY(-${window.innerHeight + 100}px) rotate(360deg);
-                    opacity: 0;
-                }
+                }, 1000);
             }
-        `;
-        document.head.appendChild(style);
+        }
+
+        function pauseTimer() {
+            if (!isPaused) {
+                isPaused = true;
+                clearInterval(timerInterval);
+            }
+        }
+
+        function resetTimer() {
+            pauseTimer();
+            timeLeft = 25 * 60;
+            updateTimerDisplay();
+            timerDisplay.textContent = "25:00";
+        }
+
+        startBtn.addEventListener('click', startTimer);
+        pauseBtn.addEventListener('click', pauseTimer);
+        resetBtn.addEventListener('click', resetTimer);
+
+        // --- Random Link Generator Logic ---
+        const generateLinkBtn = document.getElementById('generate-link-btn');
+        const generatedLinkText = document.getElementById('generated-link');
+        
+        generateLinkBtn.addEventListener('click', () => {
+            const randomId = Math.random().toString(36).substring(2, 8) + Math.random().toString(36).substring(2, 8);
+            const link = https://sync.com/meet/${randomId};
+            generatedLinkText.textContent = link;
+            generatedLinkText.classList.remove('hidden');
+        });
     </script>
 </body>
-
 </html>
