@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sync - Study Partner Matching</title>
+  <style>
+   body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background: linear-gradient(to bottom, #1a0000, #660000); /* dark red to deep black */
+  color: #f5f5f5;
+}
+
+header {
+  background-color: #990000;
+  padding: 20px;
+  color: white;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-top: 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #cc0000;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #e60000;
+}
+
+.login-form, .match-container {
+  margin-top: 50px;
+}
+
+input {
+  padding: 8px;
+  margin: 10px;
+  width: 200px;
+  border: 1px solid #990000;
+  border-radius: 5px;
+  background-color: #330000;
+  color: white;
+}
+
+#card-container {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  margin: auto;
+}
+
+.profile-card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #1a0000;
+  border: 1px solid #990000;
+  border-radius: 8px;
+  padding: 16px;
+  box-sizing: border-box;
+  color: white;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Sync</h1>
+    <p>Find your perfect academic match!</p>
+  </header>
+
+  <!-- Main Page -->
+  <section id="main-page">
+    <h2>Study Partner Matching</h2>
+    <p>Our algorithm connects you with students who share your courses, goals, and learning style, making collaboration effortless.</p>
+    <button onclick="showLogin()">Find Study Partner</button>
+  </section>
+
+  <!-- Login Page -->
+  <section id="login-page" style="display:none;">
+    <div class="login-form">
+      <h2>Login to Match</h2>
+      <input type="text" id="username" placeholder="Username" />
+      <input type="password" id="password" placeholder="Password" />
+      <br />
+      <button onclick="login()">Login</button>
+    </div>
+  </section>
+
+  <!-- Matching Page -->
+  <section id="match-page" style="display:none;">
+    <div id="card-container"></div>
+    <div>
+      <button onclick="swipe(-1)">Nope</button>
+      <button onclick="swipe(1)">Match</button>
+    </div>
+  </section>
+
+<!-- Add Firebase SDK scripts before closing </body> -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-analytics.js";
+  import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDNtiID0Py7dMiO-tVRnHrsSk6ecNA4p4c",
+    authDomain: "sync-matches-f2678.firebaseapp.com",
+    projectId: "sync-matches-f2678",
+    storageBucket: "sync-matches-f2678.firebasestorage.app",
+    messagingSenderId: "1051324773950",
+    appId: "1:1051324773950:web:c7afeed3395e7073b9c36f",
+    measurementId: "G-QJB3E1J9BZ"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const db = getFirestore(app);
+
+  let currentUser = "";
+  const profiles = [
+    { name: 'Alice', course: 'CS50', style: 'Night Owl' },
+    { name: 'Bob', course: 'Psych 101', style: 'Day Person' },
+    { name: 'Charlie', course: 'Coding Club', style: 'Morning Focus' }
+  ];
+  let currentIndex = 0;
+
+  window.showLogin = function () {
+    document.getElementById('main-page').style.display = 'none';
+    document.getElementById('login-page').style.display = 'block';
+  };
+
+  window.login = function () {
+    currentUser = document.getElementById('username').value;
+    if (!currentUser) {
+      alert("Please enter your username!");
+      return;
+    }
+    document.getElementById('login-page').style.display = 'none';
+    document.getElementById('match-page').style.display = 'block';
+    renderProfiles();
+  };
+
+  function renderProfiles() {
+    const container = document.getElementById('card-container');
+    container.innerHTML = '';
+    for (let i = currentIndex; i < profiles.length; i++) {
+      const p = profiles[i];
+      const card = document.createElement('div');
+      card.className = 'profile-card';
+      card.innerHTML = `<h3>${p.name}</h3><p>Course: ${p.course}</p><p>Style: ${p.style}</p>`;
+      if (i !== currentIndex) card.classList.add('hidden');
+      container.appendChild(card);
+    }
+  }
+
+  window.swipe = async function (direction) {
+    const container = document.getElementById('card-container');
+    const cards = container.getElementsByClassName('profile-card');
+    if (!cards.length) return;
+
+    const topCard = cards[0];
+    const matchedProfile = profiles[currentIndex];
+
+    if (direction === 1 && matchedProfile) {
+      console.log("Match button clicked!");
+      try {
+        await addDoc(collection(db, "matches"), {
+          user: currentUser,
+          matchedWith: matchedProfile.name,
+          timestamp: new Date()
+        });
+        console.log("Document successfully written!");
+      } catch (error) {
+        console.error("Error writing document: ", error);
+      }
+    }
+
+    topCard.style.transform = `translateX(${direction * 500}px) rotate(${direction * 30}deg)`;
+    topCard.style.opacity = '0';
+    setTimeout(() => {
+      currentIndex++;
+      if (currentIndex >= profiles.length) {
+        container.innerHTML = '<p>No more profiles.</p>';
+      } else {
+        renderProfiles();
+      }
+    }, 300);
+  };
+</script>
+
+</body>
+</html>
