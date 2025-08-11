@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Student Resource Repository</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Sync-Web-Dev-/style.css">
+</head>
+
+<body class="repo-body">
+
+    <video autoplay muted loop id="repo-bg-video">
+        <source src="WhatsApp Video 2025-08-09 at 19.43.04_5d6f89e3.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div id="repo-video-overlay"></div>
+
+    <main class="repo-main-container">
+        <section class="repo-form-container">
+            <h2 class="repo-heading">Upload Resource</h2>
+            <form id="repo-upload-form">
+                <label for="repo-category">Category</label>
+                <select id="repo-category">
+                    <option>Marketing</option>
+                    <option>Finance</option>
+                    <option>Case Competition</option>
+                    <option>Consulting Prep</option>
+                    <option>CFA Level 1</option>
+                    <option>CFA Level 2</option>
+                    <option>CFA Level 3</option>
+                    <option>Statistics</option>
+                    <option>Data Analytics</option>
+                    <option>Economics</option>
+                    <option>Accounting</option>
+                    <option>Strategy</option>
+                    <option>Human Resources</option>
+                    <option>Organisational Behaviour</option>
+                    <option>Entrepreneurship</option>
+                    <option>Excel Tutorials</option>
+                    <option>PowerPoint Design</option>
+                    <option>Interview Prep</option>
+                    <option>Resume Samples</option>
+                    <option>Other</option>
+                </select>
+
+                <label for="repo-description">Description</label>
+                <textarea id="repo-description" placeholder="Brief description of the resource" rows="4"></textarea>
+
+                <label for="repo-drive-link">Google Drive Link</label>
+                <input type="url" id="repo-drive-link" placeholder="Paste Google Drive share link">
+
+                <button type="submit" class="repo-submit-btn">Save Resource</button>
+            </form>
+        </section>
+
+        <section class="repo-search-container">
+            <h2 class="repo-heading">Search Resources</h2>
+            <input type="text" id="repo-search-box" placeholder="Search by keyword or category...">
+            <div id="repo-results"></div>
+        </section>
+    </main>
+
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyBkNhvZdqEVYZK2tNOiKZoBBhCTuu-pjK0",
+            authDomain: "sync-resources.firebaseapp.com",
+            projectId: "sync-resources"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        const uploadForm = document.getElementById('repo-upload-form');
+        const searchBox = document.getElementById('repo-search-box');
+        const resultsDiv = document.getElementById('repo-results');
+
+        uploadForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const category = document.getElementById('repo-category').value;
+            const description = document.getElementById('repo-description').value;
+            const driveLink = document.getElementById('repo-drive-link').value;
+
+            if (!category || !description || !driveLink) {
+                alert('Please fill all fields.');
+                return;
+            }
+
+            try {
+                await db.collection('resources').add({
+                    category,
+                    description,
+                    driveLink,
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                });
+
+                alert('Resource added!');
+                uploadForm.reset();
+            } catch (error) {
+                console.error("Error adding document: ", error);
+                alert('Failed to add resource. See console for details.');
+            }
+        });
+
+        const fetchAndDisplayResults = async () => {
+            const queryText = searchBox.value.toLowerCase();
+            const snapshot = await db.collection('resources').orderBy('timestamp', 'desc').get();
+            resultsDiv.innerHTML = '';
+
+            if (snapshot.empty && queryText === "") {
+                resultsDiv.innerHTML = `<p class="repo-no-results">No resources found. Start by uploading one!</p>`;
+                return;
+            }
+
+            let found = false;
+            snapshot.forEach(doc => {
+                const data = doc.data();
+                if (
+                    data.category.toLowerCase().includes(queryText) ||
+                    data.description.toLowerCase().includes(queryText)
+                ) {
+                    found = true;
+                    resultsDiv.innerHTML += `
+                        <div class="repo-card">
+                            <strong>${data.category}</strong>
+                            <p>${data.description}</p>
+                            <a href="${data.driveLink}" target="_blank" rel="noopener noreferrer">Open Resource &rarr;</a>
+                        </div>
+                    `;
+                }
+            });
+
+            if (!found) {
+                 resultsDiv.innerHTML = `<p class="repo-no-results">No resources match your search.</p>`;
+            }
+        };
+
+        searchBox.addEventListener('input', fetchAndDisplayResults);
+        document.addEventListener('DOMContentLoaded', fetchAndDisplayResults);
+    </script>
+
+</body>
+</html>
