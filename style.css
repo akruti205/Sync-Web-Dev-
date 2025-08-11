@@ -231,6 +231,21 @@ body {
     background: rgba(255, 255, 255, 0.2);
 }
 
+/*Generate Link - buttons*/
+#generate-link-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+}
+
+#generate-link-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
 /*Style sheet for repository page*/
 :root {
     --repo-background-dark: #121212;
