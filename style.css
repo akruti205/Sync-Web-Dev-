@@ -231,3 +231,203 @@ body {
     background: rgba(255, 255, 255, 0.2);
 }
 
+/*Style sheet for repository page*/
+:root {
+    --repo-background-dark: #121212;
+    --repo-primary-dark: #1E1E1E;
+    --repo-text-light: #F5F5F5;
+    --repo-text-secondary: #A0A0A0;
+    --repo-accent-red: #E50914;
+    --repo-accent-red-hover: #F61A25;
+    --repo-border-color: #333333;
+}
+
+/* Base reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@keyframes repo-fadeInSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.repo-body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--repo-background-dark);
+    color: var(--repo-text-light);
+    overflow-x: hidden;
+}
+
+/* Background video */
+#repo-bg-video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -2;
+    transform: translateX(-50%) translateY(-50%);
+    object-fit: cover;
+    filter: grayscale(50%);
+}
+
+#repo-video-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.9) 100%);
+    z-index: -1;
+}
+
+/* Layout */
+.repo-main-container {
+    display: flex;
+    gap: 40px;
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 20px;
+    animation: repo-fadeInSlideUp 0.8s ease-out forwards;
+}
+
+.repo-form-container,
+.repo-search-container {
+    flex: 1;
+    background-color: var(--repo-primary-dark);
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid var(--repo-border-color);
+}
+
+.repo-search-container {
+    animation-delay: 0.2s;
+}
+
+.repo-heading {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--repo-text-light);
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.repo-heading::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--repo-accent-red);
+}
+
+/* Form elements */
+label {
+    display: block;
+    margin: 20px 0 8px 0;
+    color: var(--repo-text-secondary);
+    font-weight: 600;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--repo-background-dark);
+    border: 1px solid var(--repo-border-color);
+    border-radius: 5px;
+    color: var(--repo-text-light);
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--repo-accent-red);
+    box-shadow: 0 0 0 2px rgba(229, 9, 20, 0.5);
+}
+
+.repo-submit-btn {
+    width: 100%;
+    padding: 15px;
+    margin-top: 25px;
+    background-color: var(--repo-accent-red);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.repo-submit-btn:hover {
+    background-color: var(--repo-accent-red-hover);
+    transform: scale(1.02);
+}
+
+/* Search results */
+#repo-search-box {
+    margin-bottom: 20px;
+}
+
+.repo-card {
+    background-color: #2c2c2c;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--repo-accent-red);
+    border-radius: 0 4px 4px 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.repo-card:hover {
+    transform: translateX(10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.repo-card strong {
+    display: block;
+    color: var(--repo-text-light);
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.repo-card p {
+    color: var(--repo-text-secondary);
+    margin-bottom: 15px;
+}
+
+.repo-card a {
+    color: var(--repo-accent-red);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.repo-card a:hover {
+    color: var(--repo-accent-red-hover);
+}
+
+.repo-no-results {
+    color: var(--repo-text-secondary);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .repo-main-container {
+        flex-direction: column;
+    }
+}
+
+
