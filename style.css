@@ -200,3 +200,7 @@ body {
   z-index: -3;
   object-fit: cover;
 }
+
+#favicon {
+    height: 100%;
+}
