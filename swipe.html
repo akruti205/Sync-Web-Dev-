@@ -2,147 +2,511 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Sync - Study Partner Matching</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sync - AI Study Partner Matching</title>
   <style>
-   body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  background: linear-gradient(to bottom, #1a0000, #660000); /* dark red to deep black */
-  color: #f5f5f5;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-header {
-  background-color: #990000;
-  padding: 20px;
-  color: white;
-}
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(135deg, #1a0000 0%, #330000 50%, #660000 100%);
+      color: #ffffff;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
 
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  margin-top: 20px;
-  cursor: pointer;
-  border: none;
-  border-radius: 5px;
-  background-color: #cc0000;
-  color: white;
-  transition: background-color 0.3s ease;
-}
+    .background-pattern {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.1;
+      background-image: 
+        radial-gradient(circle at 20% 50%, rgba(255, 0, 0, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(139, 0, 0, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(205, 0, 0, 0.3) 0%, transparent 50%);
+      z-index: -1;
+    }
 
-button:hover {
-  background-color: #e60000;
-}
+    header {
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 0, 0, 0.3);
+      padding: 25px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
 
-.login-form, .match-container {
-  margin-top: 50px;
-}
+    header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255, 0, 0, 0.1), transparent);
+      animation: shimmer 3s infinite;
+    }
 
-input {
-  padding: 8px;
-  margin: 10px;
-  width: 200px;
-  border: 1px solid #990000;
-  border-radius: 5px;
-  background-color: #330000;
-  color: white;
-}
+    @keyframes shimmer {
+      0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+      100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+    }
 
-#card-container {
-  position: relative;
-  width: 300px;
-  height: 400px;
-  margin: auto;
-}
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      background: linear-gradient(45deg, #ff0000, #ffffff, #ff0000);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+      text-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+    }
 
-.profile-card {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: #1a0000;
-  border: 1px solid #990000;
-  border-radius: 8px;
-  padding: 16px;
-  box-sizing: border-box;
-  color: white;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      font-weight: 300;
+      color: #ffcccc;
+    }
 
-.hidden {
-  opacity: 0;
-}
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
 
+    .login-form {
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(15px);
+      border: 2px solid rgba(255, 0, 0, 0.3);
+      border-radius: 20px;
+      padding: 50px;
+      max-width: 400px;
+      margin: 50px auto;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 0, 0, 0.2);
+    }
+
+    .login-form h2 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      text-align: center;
+      font-weight: 700;
+      color: #ff0000;
+    }
+
+    input {
+      width: 100%;
+      padding: 15px 20px;
+      margin-bottom: 20px;
+      border: 2px solid rgba(255, 0, 0, 0.3);
+      border-radius: 12px;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    input::placeholder {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #ff0000;
+      background: rgba(0, 0, 0, 0.8);
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+    }
+
+    .btn {
+      background: linear-gradient(135deg, #ff0000, #cc0000);
+      color: white;
+      border: none;
+      padding: 18px 40px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3);
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.5s;
+    }
+
+    .btn:hover::before {
+      left: 100%;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(255, 0, 0, 0.4);
+      background: linear-gradient(135deg, #ff3333, #ff0000);
+    }
+
+    .match-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      margin-top: 30px;
+    }
+
+    #card-container {
+      position: relative;
+      width: 380px;
+      height: 550px;
+      perspective: 1000px;
+    }
+
+    .profile-card {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(20px);
+      border: 2px solid rgba(255, 0, 0, 0.4);
+      border-radius: 25px;
+      padding: 30px;
+      color: #ffffff;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 0, 0, 0.2);
+      cursor: grab;
+      overflow: hidden;
+    }
+
+    .profile-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 150px;
+      background: linear-gradient(135deg, #ff0000, #990000);
+      border-radius: 25px 25px 0 0;
+    }
+
+    .profile-avatar {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin: 60px auto 20px;
+      background: linear-gradient(135deg, #ff0000, #330000);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      font-weight: bold;
+      color: white;
+      border: 5px solid white;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .profile-name {
+      font-size: 1.8rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 5px;
+      color: #ffffff;
+    }
+
+    .profile-age {
+      text-align: center;
+      color: #cccccc;
+      font-size: 1rem;
+      margin-bottom: 25px;
+    }
+
+    .profile-info {
+      space-y: 15px;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 15px;
+      padding: 12px;
+      background: rgba(255, 0, 0, 0.1);
+      border: 1px solid rgba(255, 0, 0, 0.2);
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+    }
+
+    .info-icon {
+      width: 24px;
+      height: 24px;
+      background: linear-gradient(135deg, #ff0000, #990000);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 12px;
+      flex-shrink: 0;
+    }
+
+    .info-text {
+      flex: 1;
+    }
+
+    .info-label {
+      font-weight: 600;
+      color: #ffffff;
+      font-size: 0.9rem;
+    }
+
+    .info-value {
+      color: #cccccc;
+      font-size: 0.85rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .tag {
+      background: linear-gradient(135deg, #ff0000, #990000);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      border: 1px solid rgba(255, 0, 0, 0.3);
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .action-btn {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .reject-btn {
+      background: linear-gradient(135deg, #330000, #000000);
+      color: white;
+      border: 2px solid #666666;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .match-btn {
+      background: linear-gradient(135deg, #ff0000, #cc0000);
+      color: white;
+      border: 2px solid #ff0000;
+      box-shadow: 0 10px 30px rgba(255, 0, 0, 0.4);
+    }
+
+    .action-btn:hover {
+      transform: translateY(-5px) scale(1.1);
+    }
+
+    .action-btn:active {
+      transform: translateY(-2px) scale(1.05);
+    }
+
+    .hidden {
+      opacity: 0;
+      transform: scale(0.8);
+      pointer-events: none;
+    }
+
+    .no-more-cards {
+      text-align: center;
+      padding: 60px;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(15px);
+      border-radius: 25px;
+      border: 2px solid rgba(255, 0, 0, 0.3);
+      color: white;
+    }
+
+    .no-more-cards h3 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: #ff0000;
+    }
+
+    .no-more-cards p {
+      opacity: 0.8;
+      font-size: 1.1rem;
+      color: #cccccc;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 20px 15px;
+      }
+      
+      #card-container {
+        width: 320px;
+        height: 480px;
+      }
+      
+      .profile-card {
+        padding: 20px;
+      }
+      
+      h1 {
+        font-size: 2.5rem;
+      }
+      
+      .login-form {
+        padding: 30px;
+        margin: 30px auto;
+      }
+    }
   </style>
 </head>
 <body>
+  <div class="background-pattern"></div>
+  
   <header>
     <h1>Sync</h1>
-    <p>Find your perfect academic match!</p>
+    <p>Find your perfect academic match with AI precision</p>
   </header>
 
-  <!-- Main Page -->
-  <section id="main-page">
-    <h2>Study Partner Matching</h2>
-    <p>Our algorithm connects you with students who share your courses, goals, and learning style, making collaboration effortless.</p>
-    <button onclick="showLogin()">Find Study Partner</button>
-  </section>
-
-  <!-- Login Page -->
-  <section id="login-page" style="display:none;">
-    <div class="login-form">
-      <h2>Login to Match</h2>
-      <input type="text" id="username" placeholder="Username" />
-      <input type="password" id="password" placeholder="Password" />
-      <br />
-      <button onclick="login()">Login</button>
+  <!-- Login Page (Default) -->
+  <section id="login-page">
+    <div class="container">
+      <div class="login-form">
+        <h2>Join the Community</h2>
+        <input type="text" id="username" placeholder="Enter your username" />
+        <input type="password" id="password" placeholder="Enter your password" />
+        <button class="btn" onclick="login()">Login & Start Matching</button>
+      </div>
     </div>
   </section>
 
   <!-- Matching Page -->
   <section id="match-page" style="display:none;">
-    <div id="card-container"></div>
-    <div>
-      <button onclick="swipe(-1)">Nope</button>
-      <button onclick="swipe(1)">Match</button>
+    <div class="container">
+      <div class="match-container">
+        <div id="card-container"></div>
+        <div class="action-buttons">
+          <button class="action-btn reject-btn" onclick="swipe(-1)" title="Pass">✕</button>
+          <button class="action-btn match-btn" onclick="swipe(1)" title="Match">♥</button>
+        </div>
+      </div>
     </div>
   </section>
 
-<!-- Add Firebase SDK scripts before closing </body> -->
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-analytics.js";
-  import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyDNtiID0Py7dMiO-tVRnHrsSk6ecNA4p4c",
-    authDomain: "sync-matches-f2678.firebaseapp.com",
-    projectId: "sync-matches-f2678",
-    storageBucket: "sync-matches-f2678.firebasestorage.app",
-    messagingSenderId: "1051324773950",
-    appId: "1:1051324773950:web:c7afeed3395e7073b9c36f",
-    measurementId: "G-QJB3E1J9BZ"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-  const db = getFirestore(app);
-
+<script>
   let currentUser = "";
   const profiles = [
-    { name: 'Alice', course: 'CS50', style: 'Night Owl' },
-    { name: 'Bob', course: 'Psych 101', style: 'Day Person' },
-    { name: 'Charlie', course: 'Coding Club', style: 'Morning Focus' }
+    {
+      name: 'Alexandra Chen',
+      age: 20,
+      major: 'Computer Science',
+      year: 'Junior',
+      courses: ['CS50 - Introduction to CS', 'Data Structures & Algorithms', 'Machine Learning Fundamentals'],
+      studyStyle: 'Night Owl',
+      location: 'Boston, MA',
+      gpa: '3.8',
+      interests: ['AI Research', 'Web Development', 'Competitive Programming'],
+      studyPreferences: ['Group Study', 'Online Collaboration', 'Weekend Sessions'],
+      bio: 'Passionate about AI and always looking for study partners who share the same enthusiasm for tech!',
+      avatar: 'A'
+    },
+    {
+      name: 'Marcus Rodriguez',
+      age: 19,
+      major: 'Psychology',
+      year: 'Sophomore',
+      courses: ['Psych 101 - General Psychology', 'Research Methods', 'Cognitive Psychology'],
+      studyStyle: 'Early Bird',
+      location: 'Austin, TX',
+      gpa: '3.6',
+      interests: ['Behavioral Research', 'Mental Health Advocacy', 'Data Analysis'],
+      studyPreferences: ['Library Study', 'Flashcards', 'Morning Sessions'],
+      bio: 'Psychology major with a love for understanding human behavior. Let\'s explore the mind together!',
+      avatar: 'M'
+    },
+    {
+      name: 'Emma Thompson',
+      age: 21,
+      major: 'Business Administration',
+      year: 'Senior',
+      courses: ['Strategic Management', 'Financial Analysis', 'Entrepreneurship'],
+      studyStyle: 'Flexible',
+      location: 'Seattle, WA',
+      gpa: '3.9',
+      interests: ['Startups', 'Investment Strategy', 'Leadership'],
+      studyPreferences: ['Case Studies', 'Group Projects', 'Coffee Shop Study'],
+      bio: 'Future entrepreneur seeking like-minded study partners for business courses and networking!',
+      avatar: 'E'
+    },
+    {
+      name: 'David Kim',
+      age: 22,
+      major: 'Engineering',
+      year: 'Senior',
+      courses: ['Advanced Calculus', 'Physics III', 'Engineering Design'],
+      studyStyle: 'Afternoon Focus',
+      location: 'San Francisco, CA',
+      gpa: '3.7',
+      interests: ['Renewable Energy', 'Robotics', 'Sustainable Design'],
+      studyPreferences: ['Problem Solving', 'Lab Work', 'Peer Review'],
+      bio: 'Engineering student passionate about sustainable technology and collaborative problem-solving!',
+      avatar: 'D'
+    },
+    {
+      name: 'Sofia Martinez',
+      age: 18,
+      major: 'Pre-Med Biology',
+      year: 'Freshman',
+      courses: ['Biology 101', 'General Chemistry', 'Anatomy & Physiology'],
+      studyStyle: 'Morning Person',
+      location: 'Miami, FL',
+      gpa: '4.0',
+      interests: ['Medical Research', 'Volunteer Work', 'Scientific Writing'],
+      studyPreferences: ['Intensive Study', 'Mnemonics', 'Study Groups'],
+      bio: 'Aspiring doctor dedicated to academic excellence and helping others succeed in their studies!',
+      avatar: 'S'
+    }
   ];
+  
   let currentIndex = 0;
 
-  window.showLogin = function () {
-    document.getElementById('main-page').style.display = 'none';
-    document.getElementById('login-page').style.display = 'block';
-  };
-
-  window.login = function () {
-    currentUser = document.getElementById('username').value;
+  function login() {
+    currentUser = document.getElementById('username').value.trim();
     if (!currentUser) {
       alert("Please enter your username!");
       return;
@@ -150,54 +514,111 @@ input {
     document.getElementById('login-page').style.display = 'none';
     document.getElementById('match-page').style.display = 'block';
     renderProfiles();
-  };
+  }
 
   function renderProfiles() {
     const container = document.getElementById('card-container');
     container.innerHTML = '';
-    for (let i = currentIndex; i < profiles.length; i++) {
-      const p = profiles[i];
+    
+    if (currentIndex >= profiles.length) {
+      container.innerHTML = `
+        <div class="no-more-cards">
+          <h3>🔥 You've seen everyone!</h3>
+          <p>Check back later for new study partners joining the community.</p>
+        </div>
+      `;
+      return;
+    }
+
+    for (let i = currentIndex; i < Math.min(currentIndex + 3, profiles.length); i++) {
+      const profile = profiles[i];
       const card = document.createElement('div');
       card.className = 'profile-card';
-      card.innerHTML = `<h3>${p.name}</h3><p>Course: ${p.course}</p><p>Style: ${p.style}</p>`;
       if (i !== currentIndex) card.classList.add('hidden');
+      
+      card.innerHTML = `
+        <div class="profile-avatar">${profile.avatar}</div>
+        <div class="profile-name">${profile.name}</div>
+        <div class="profile-age">${profile.age} years old • ${profile.major} • ${profile.year}</div>
+        
+        <div class="profile-info">
+          <div class="info-item">
+            <div class="info-icon">📍</div>
+            <div class="info-text">
+              <div class="info-label">Location</div>
+              <div class="info-value">${profile.location}</div>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <div class="info-icon">📚</div>
+            <div class="info-text">
+              <div class="info-label">Current Courses</div>
+              <div class="info-value">${profile.courses.slice(0, 2).join(', ')}</div>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <div class="info-icon">🕒</div>
+            <div class="info-text">
+              <div class="info-label">Study Style</div>
+              <div class="info-value">${profile.studyStyle}</div>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <div class="info-icon">📈</div>
+            <div class="info-text">
+              <div class="info-label">GPA</div>
+              <div class="info-value">${profile.gpa}</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="tags">
+          ${profile.interests.slice(0, 3).map(interest => `<span class="tag">${interest}</span>`).join('')}
+        </div>
+      `;
+      
       container.appendChild(card);
     }
   }
 
-  window.swipe = async function (direction) {
+  function swipe(direction) {
     const container = document.getElementById('card-container');
     const cards = container.getElementsByClassName('profile-card');
-    if (!cards.length) return;
+    if (!cards.length || currentIndex >= profiles.length) return;
 
     const topCard = cards[0];
     const matchedProfile = profiles[currentIndex];
 
+    // Animate card exit
+    const rotation = direction * 30;
+    const translateX = direction * 500;
+    topCard.style.transform = `translateX(${translateX}px) rotate(${rotation}deg)`;
+    topCard.style.opacity = '0';
+
+    // Handle match (simplified - no Firebase for now)
     if (direction === 1 && matchedProfile) {
-      console.log("Match button clicked!");
-      try {
-        await addDoc(collection(db, "matches"), {
-          user: currentUser,
-          matchedWith: matchedProfile.name,
-          timestamp: new Date()
-        });
-        console.log("Document successfully written!");
-      } catch (error) {
-        console.error("Error writing document: ", error);
-      }
+      console.log(`${currentUser} matched with ${matchedProfile.name}`);
     }
 
-    topCard.style.transform = `translateX(${direction * 500}px) rotate(${direction * 30}deg)`;
-    topCard.style.opacity = '0';
+    // Update cards after animation
     setTimeout(() => {
       currentIndex++;
-      if (currentIndex >= profiles.length) {
-        container.innerHTML = '<p>No more profiles.</p>';
-      } else {
-        renderProfiles();
-      }
-    }, 300);
-  };
+      renderProfiles();
+    }, 400);
+  }
+
+  // Allow Enter key to login
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('username').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') login();
+    });
+    document.getElementById('password').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') login();
+    });
+  });
 </script>
 
 </body>
