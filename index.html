@@ -576,7 +576,7 @@
 
         .feature-card::before {
             content: '';
-            position: absolute;
+            position: relative;
             top: 0;
             left: -100%;
             width: 100%;
@@ -808,7 +808,8 @@
             <div class="nav-links">
                 <a href="#features">Features</a>
                 <a href="#team">Team</a>
-                <a href="#cta">About</a>
+                <a href="about.html">About</a>
+                <a href=hidden.html">Hidden Page</a>
             </div>
             <button class="btn-primary" onclick="window.open('SignUpPage.html', '_blank')">Join Sync</button>
         </div>
@@ -989,7 +990,7 @@
             </p>
 
             <button class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem; 
-                                               animation: ctaGlow 2s ease-in-out infinite alternate;">
+                                               animation: ctaGlow 2s ease-in-out infinite alternate;" onclick="window.open('SignUpPage.html', '_blank')">
                 Join the Community
             </button>
         </div>
