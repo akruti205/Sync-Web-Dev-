@@ -1,352 +1,302 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sync - Where Brains Meet Vibes</title>
+    <title>Sync - Collaborative Study Platform</title>
+    <meta name="description"
+        content="A dynamic and interactive hyperlocal study platform connecting Gen-Z students for collaborative learning. Features include smart study matching, live sessions, integrated Pomodoro timers, and Discord-like chatrooms.">
+    <meta name="keywords"
+        content="study platform, collaborative learning, Gen-Z students, study groups, live streaming, academic community, Pomodoro timer, chatrooms, study partners, productivity app">
+    <meta name="author" content="Team SyncIng">
+    <!--<link rel="icon" type="image/x-icon"
+        href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTYiIGZpbGw9InVybCgjZ3JhZGllbnQwX2xpbmVhcl8xXzEpIi8+CjxwYXRoIGQ9Ik0xMiA4SDIwVjEySDEyVjhaTTggMTJIMTJWMTZIOFYxMlpNMjAgMTJIMjRWMTZIMjBWMTZaTTEyIDE2SDIwVjIwSDEyVjE2WiIgZmlsbD0id2hpdGUiLz4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudD4KPHN0b3Agc3RvcC1jb2xvcj0iIzgwNTVGRiIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNDQjVCRkYiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8L3N2Zz4K">-->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700;800;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="style.css" rel="stylesheet">
+    <link rel="icon" type="favicon" href="favicon.png" id="favicon">
+
 
 </head>
 
-<body>
-    <div class="cursor"></div>
-    <div class="cursor-follower"></div>
+<body class="antialiased">
+        <!--<video autoplay muted loop id="bg-video">
+          <source src="https://res.cloudinary.com/yourname/video/upload/v123456789/banner.mp4" type="video/mp4" alt="beackground video of a man reading">
+          Your browser does not support HTML5 video.
+        </video>-->
+    <img src="https://res.cloudinary.com/dymaldtqv/image/upload/v1754911602/6a6a1e5a-d25f-492b-a920-f37ebd91f9ad.png" id="bg-image"></img>
 
-    <div class="bg-container">
-        <div class="matrix-rain" id="matrixRain"></div>
+    <div class="animated-bg-particles"></div>
 
-        <div class="particle-system" id="particleSystem"></div>
-
-        <div class="neural-network"></div>
-
-        <div class="glitch-lines" id="glitchLines"></div>
-    </div>
-
-    <nav class="nav-container">
-        <div class="nav-content">
-            <div class="logo">Sync</div>
-            <div class="nav-links">
-                <a href="#features">Features</a>
-                <a href="#team">Team</a>
-                <a href="#cta">About</a>
+    <!-- Header -->
+    <header
+        class="sticky top-0 z-50 py-4 backdrop-filter backdrop-blur-lg bg-dark-bg bg-opacity-70 border-b border-gray-800">
+        <nav class="container flex justify-between items-center">
+            <a href="#" class="logo-text text-3xl">Sync</a>
+            <div class="space-x-8 hidden md:flex">
+                <a href="#features"
+                    class="text-gray-300 hover:text-primary-purple transition-colors duration-300">Features</a>
+                <a href="#about"
+                    class="text-gray-300 hover:text-primary-purple transition-colors duration-300">About</a>
+                <a href="#team" class="text-gray-300 hover:text-primary-purple transition-colors duration-300">Team</a>
             </div>
-            <button class="btn-primary" onclick="window.open('SignUpPage.html', '_blank')">Join Sync</button>
-        </div>
-    </nav>
+            <a href="#" class="btn-primary inline-block rounded-full px-6 py-2 font-semibold text-white">Join Sync</a>
+        </nav>
+    </header>
 
-    <section class="hero">
-        <div class="floating-elements">
-            <div class="floating-cube cube-1"></div>
-            <div class="floating-cube cube-2"></div>
-            <div class="floating-cube cube-3"></div>
-        </div>
+    <main>
 
-        <div class="hero-content">
-            <h1>
-                <div class="word">Where</div>
-                <div class="word brain-text">Brains</div><br>
-                <div class="word">Meet</div>
-                <div class="word vibes-text">Vibes</div>
-            </h1>
-            <p>
-                The collaborative space for Gen-Z students to connect, study, and conquer
-                academic goals together. Think of it as your digital study lounge.
-            </p>
-            <div class="hero-buttons">
-                <button class="btn-primary"
-                    onclick="document.getElementById('features').scrollIntoView({behavior: 'smooth'})">
-                    Discover Features
-                </button>
-                <button class="btn-outline" onclick="window.location.href='file:///C:/Users/HP/Downloads/SignUpPage.html'">Sign Up Free</button>
-            </div>
-        </div>
-    </section>
+        <!-- Hero Section -->
+        <section class="min-h-screen flex items-center justify-center text-center py-24 relative overflow-hidden">
+            <!-- <video autoplay muted loop playsinline class="bg-video">
+                <source src="https://res.cloudinary.com/yourname/video/upload/v123456789/banner.mp4" type="video/mp4">
+                <track kind="descriptions" src="banner-desc.vtt" srclang="en" label="Video description">
 
-    <section id="features" class="features">
-        <div class="features-container">
-            <h2 class="section-title animate-on-scroll">How We Make Studying Better</h2>
-            <div class="features-grid">
-                <div class="feature-card animate-on-scroll">
-                    <div class="feature-icon"><i class="fab fa-discord"></i></div>
-                    <h3>Subject-Specific Chatrooms</h3>
-                    <p>Join Discord-like channels for your specific classes. Ask questions, share notes, and debate
-                        concepts in real-time with peers from your college or major.</p>
-                    <a href="chatroom.html" target="_blank"><button class="feature-button">Open Chat</button></a>
-                    <div style="color: var(--primary-red); font-size: 0.8rem; margin-top: 1rem;">#calculus-grind |
-                        #psych-101 | #coding-club</div>
-                </div>
+            </video> -->
+            <!--<video src="https://res.cloudinary.com/yourname/video/upload/v123456789/banner.mp4" autoplay muted loop
+                playsinline class="bg-video">
 
-                <div class="feature-card animate-on-scroll">
-                    <div class="feature-icon"><i class="fas fa-clock"></i></div>
-                    <h3>Integrated Pomodoro Timer</h3>
-                    <div class="timer-display" id="timerDisplay">25:00</div>
-                    <button class="feature-button" onclick="window.open('https://akruti205.github.io/Sync-Web-Dev-/pomodoro.html', '_blank')" id="startTimer">Start</button>
-                    <p style="margin-top: 1rem;">Boost focus by breaking down study time into manageable intervals.</p>
-                </div>
-
-                <div class="feature-card animate-on-scroll">
-                    <div class="feature-icon"><i class="fas fa-link"></i></div>
-                    <h3>Random Study Group Generator</h3>
-                    <p>Feeling spontaneous? Click a button to instantly create a secure meet link for a quick, study
-                        session with peers.</p>
-                    <button class="feature-button" id="generatePortal">Generate Link</button>
-                    <p id="portalLink"
-                        style="color: var(--primary-red); margin-top: 1rem; word-break: break-all; display: none;"></p>
-                </div>
-
-                <div class="feature-card animate-on-scroll">
-                    <div class="feature-icon"><i class="fas fa-handshake"></i></div>
-                    <h3>Study Partner Swipe and Match</h3>
-                    <p>Find your perfect academic match, but in a dating app style to make learning and optimal and
-                        collaborate affair.</p>
-                    <button class="feature-button" onclick="window.open('https://akruti205.github.io/Sync-Web-Dev-/swipe.html', '_blank')">Match</button>
-                    <div style="color: var(--primary-red); font-size: 0.8rem; margin-top: 1rem;">#cs-50 | #project-lead
-                        | #night-owl</div>
-                </div>
-
-                <div class="feature-card animate-on-scroll">
-                    <div class="feature-icon"><i class="fas fa-star-half-alt"></i></div>
-                    <h3>Resource Repository</h3>
-                    <p>Discover free study resources to boost your learning. Explore materials across management, case
-                        competitions, CFA exam prep, and more. Upload and organize your favorite resources for easy
-                        access anytime, and share valuable content online with other students.</p>
-                    <button class="feature-button" onclick="window.open('https://akruti205.github.io/Sync-Web-Dev-/repository.html', '_blank')">Open
-                        Repository</button>
+            </video>-->
+            <div class="container animate-on-scroll">
+                <h1 class="logo-text text-6xl md:text-8xl font-black leading-tight mb-4 drop-shadow-lg">
+                    <small>Where Brains <br> Meet Vibes</small>
+                </h1>
+                <p class="text-lg md:text-2xl text-gray-400 mb-10 max-w-4xl mx-auto drop-shadow-md">
+                    The collaborative space for Gen-Z students to connect, study, and conquer academic goals together.
+                    Think of it as your digital study lounge.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                    <a href="#features"
+                        class="btn-primary inline-block rounded-full px-10 py-4 text-lg font-bold">Discover Features</a>
+                    <a href="#"
+                        class="inline-block rounded-full px-10 py-4 text-lg font-bold border-2 border-primary-purple text-primary-purple transition-colors duration-300 hover:bg-primary-purple hover:text-white">Sign
+                        Up Free</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="team" class="team-section">
-        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 25% 25%, rgba(255, 0, 64, 0.1) 0%, transparent 50%), radial-gradient(circle at 75% 75%, rgba(255, 23, 68, 0.1) 0%, transparent 50%); animation: bgPulse 4s ease-in-out infinite alternate;"></div>
-        <div style="max-width: 1400px; margin: 0 auto; position: relative; z-index: 2;">
-            <h2 class="section-title">Meet Team SyncIng</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;">
+        <!-- Dynamic Features Section -->
+        <section id="features" class="py-24">
+            <div class="container">
+                <h2 class="text-4xl font-bold text-center mb-16 animate-on-scroll">How We Make Studying Better</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-                <div class="feature-card" style="text-align: center;">
-                    <div style="position: relative; margin-bottom: 2rem;">
-                        <img src="https://res.cloudinary.com/dymaldtqv/image/upload/v1754910132/6f9be0c5-04da-4d40-80b9-bfc638286689.png"
-                            alt="Akruti Mishra" style="width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--primary-red); 
-                                    object-fit: cover; box-shadow: 0 0 30px rgba(255, 0, 64, 0.5);">
-                        <div style="position: absolute; top: -10px; right: -10px; width: 20px; height: 20px; 
-                                    background: var(--primary-red); border-radius: 50%; 
-                                    animation: pulse 2s infinite;"></div>
+                    <!-- Feature 1: Study Chatrooms -->
+                    <div class="card-glass p-8 animate-on-scroll" style="transition-delay: 0.1s;">
+                        <div class="text-5xl text-primary-purple mb-4"><i class="fab fa-discord"></i></div>
+                        <h3 class="text-2xl font-bold mb-2">Subject-Specific Chatrooms</h3>
+                        <p class="text-gray-400 mb-4">
+                            Join Discord-like channels for your specific classes. Ask questions, share notes, and debate
+                            concepts in real-time with peers from your college or major.
+                        </p>
+                        <div class="timer-controls space-x-4">
+                            <a href="chatroom.html" target="_blank"><button id="start-timer">Open Chat</button></a>
+                        </div>
+                        <div class="text-xs text-primary-purple font-semibold">#calculus-grind | #psych-101 |
+                            #coding-club</div>
                     </div>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">
-                        <a href="https://www.linkedin.com/in/akruti-mishra-977970247/" style="color: var(--primary-red); text-decoration: none; 
-                                  transition: all 0.3s ease;">Akruti Mishra</a>
-                    </h3>
-                    <p style="color: rgba(255, 255, 255, 0.7);">IPM05075</p>
-                </div>
 
-                <div class="feature-card" style="text-align: center;">
-                    <div style="position: relative; margin-bottom: 2rem;">
-                        <img src="https://res.cloudinary.com/dymaldtqv/image/upload/v1754910152/6bb2b053-036f-4dbf-9324-f527d9cf39e2.png"
-                            alt="Ananya Gautam" style="width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--primary-red); 
-                                    object-fit: cover; box-shadow: 0 0 30px rgba(255, 0, 64, 0.5);">
-                        <div style="position: absolute; top: -10px; right: -10px; width: 20px; height: 20px; 
-                                    background: var(--primary-red); border-radius: 50%; 
-                                    animation: pulse 2s infinite;"></div>
+                    <!-- Feature 2: Pomodoro Timer -->
+                    <div class="card-glass p-8 animate-on-scroll flex flex-col items-center justify-center text-center"
+                        style="transition-delay: 0.2s;">
+                        <div class="text-5xl text-neon-blue mb-4"><i class="fas fa-clock"></i></div>
+                        <h3 class="text-2xl font-bold mb-4">Integrated Pomodoro Timer</h3>
+                        <div class="timer-display mb-4">25:00</div>
+                        <div class="timer-controls space-x-4">
+                            <a href="pomodoro.html" target="_blank"><button id="start-timer">Start</button></a>
+                        </div>
+                        <p class="text-gray-400 text-sm mt-4">Boost focus by breaking down study time into manageable
+                            intervals.</p>
                     </div>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">
-                        <a href="https://www.linkedin.com/in/ananya-gautam-a7096222a/" style="color: var(--primary-red); text-decoration: none; 
-                                  transition: all 0.3s ease;">Ananya Gautam</a>
-                    </h3>
-                    <p style="color: rgba(255, 255, 255, 0.7);">IPM05077</p>
-                </div>
 
-                <div class="feature-card" style="text-align: center;">
-                    <div style="position: relative; margin-bottom: 2rem;">
-                        <img src="https://res.cloudinary.com/dymaldtqv/image/upload/v1754910209/ade738a6-45cf-46eb-8aa4-33d219d3d0e6.png"
-                            alt="Angel Sidhu" style="width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--primary-red); 
-                                    object-fit: cover; box-shadow: 0 0 30px rgba(255, 0, 64, 0.5);">
-                        <div style="position: absolute; top: -10px; right: -10px; width: 20px; height: 20px; 
-                                    background: var(--primary-red); border-radius: 50%; 
-                                    animation: pulse 2s infinite;"></div>
+                    <!-- Feature 3: Live Group Study -->
+                    <div class="card-glass p-8 animate-on-scroll flex flex-col items-center justify-center text-center"
+                        style="transition-delay: 0.3s;">
+                        <div class="text-5xl text-secondary-purple mb-4"><i class="fas fa-link"></i></div>
+                        <h3 class="text-2xl font-bold mb-4">Random Study Group Generator</h3>
+                        <p class="text-gray-400 mb-4">
+                            Feeling spontaneous? Click a button to instantly create a secure meet link for a quick,
+                            anonymous study session with peers.
+                        </p>
+                        <button id="generate-link-btn"
+                            class="btn-primary inline-block rounded-full px-6 py-2 text-sm font-semibold mt-2">
+                            Generate Link
+                        </button>
+                        <p id="generated-link" class="text-primary-purple text-sm mt-4 font-mono break-all hidden"></p>
                     </div>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">
-                        <a href="https://www.linkedin.com/in/angel-sidhu" style="color: var(--primary-red); text-decoration: none; 
-                                  transition: all 0.3s ease;">Angel Sidhu</a>
-                    </h3>
-                    <p style="color: rgba(255, 255, 255, 0.7);">IPM05078</p>
-                </div>
+                    
+                    <script>
+                    document.getElementById("generate-link-btn").addEventListener("click", function () {
+                        // Generate a unique random room name
+                        const roomName = "SyncRoom_" + Math.random().toString(36).substr(2, 8);
+                    
+                        // Create the meeting link
+                        const link = `https://meet.jit.si/${roomName}`;
+                    
+                        // Display the link
+                        const generatedLinkElement = document.getElementById("generated-link");
+                        generatedLinkElement.textContent = link;
+                        generatedLinkElement.classList.remove("hidden");
+                    
+                        // Optional: make it clickable
+                        generatedLinkElement.innerHTML = `<a href="${link}" target="_blank" class="underline">${link}</a>`;
+                    });
+                    </script>
 
-                <div class="feature-card" style="text-align: center;">
-                    <div style="position: relative; margin-bottom: 2rem;">
-                        <img src="https://res.cloudinary.com/dymaldtqv/image/upload/v1754910205/f28770ef-a7d5-4e19-89cc-0390a42d9477.png"
-                            alt="Ananya Jain" style="width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--primary-red); 
-                                    object-fit: cover; box-shadow: 0 0 30px rgba(255, 0, 64, 0.5);">
-                        <div style="position: absolute; top: -10px; right: -10px; width: 20px; height: 20px; 
-                                    background: var(--primary-red); border-radius: 50%; 
-                                    animation: pulse 2s infinite;"></div>
+
+                    <!-- Feature 4: Smart Matching -->
+                    <div class="card-glass p-8 animate-on-scroll" style="transition-delay: 0.4s;">
+                        <div class="text-5xl text-primary-purple mb-4"><i class="fas fa-handshake"></i></div>
+                        <h3 class="text-2xl font-bold mb-2">AI Study Partner Matching</h3>
+                        <p class="text-gray-400 mb-4">
+                            Find your perfect academic match. Our algorithm connects you with students who share your
+                            courses, goals, and learning style, making collaboration effortless.
+                        </p>
+                        <a href="swipe.html" target="_blank"><button id="match-button">Match</button></a>
+                        <div class="text-xs text-gray-500 font-medium">#cs-50 | #project-lead | #night-owl</div>
                     </div>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">
-                        <a href="https://www.linkedin.com/in/ananya-jain11/" style="color: var(--primary-red); text-decoration: none; 
-                                  transition: all 0.3s ease;">Ananya Jain</a>
-                    </h3>
-                    <p style="color: rgba(255, 255, 255, 0.7);">IPM05160</p>
-                </div>
 
+                    <!-- Feature 5: Resource Repository -->
+                    <div class="card-glass p-8 animate-on-scroll" style="transition-delay: 0.5s;">
+                        <div class="text-5xl text-neon-blue mb-4"><i class="fas fa-star-half-alt"></i></div>
+                        <h3 class="text-2xl font-bold mb-2">Resource Repository</h3>
+                        <p class="text-gray-400 mb-4">
+                            Discover and download free study resources to boost your learning. Explore materials across management, case competitions, CFA exam prep, and more. 
+                            Upload and organize your favorite resources for easy access anytime, and share valuable content online with other students.
+                        </p>
+                        <!--<div class="flex items-center space-x-2 text-sm text-gray-500 font-medium">
+                            <span class="bg-gray-700 rounded-full px-3 py-1">50 hours logged</span>
+                            <span class="bg-gray-700 rounded-full px-3 py-1">Study Streak: 7 days</span>
+                        </div>-->
+                        <a href="repository.html"><button id="repository-button">Open Repository</button></a>
+                    </div>
+
+                    <!-- Feature 6: Campus Hubs -->
+                    <div class="card-glass p-8 animate-on-scroll" style="transition-delay: 0.6s;">
+                        <div class="text-5xl text-secondary-purple mb-4"><i class="fas fa-university"></i></div>
+                        <h3 class="text-2xl font-bold mb-2">Hyperlocal Campus Hubs</h3>
+                        <p class="text-gray-400 mb-4">
+                            Connect with students on your campus. Discover local study spots, find project teammates,
+                            and get real-time updates on college events.
+                        </p>
+                        <div class="text-xs text-gray-500 font-medium">University of Delhi | Stanford University | IIM
+                            Indore</div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="cta-section">
-        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
-                    background: radial-gradient(circle at center, rgba(255, 0, 64, 0.2) 0%, transparent 70%);
-                    animation: ctaPulse 3s ease-in-out infinite alternate;"></div>
-
-        <div style="max-width: 1000px; margin: 0 auto; position: relative; z-index: 2;" class="animate-on-scroll">
-            <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(3rem, 8vw, 4rem); 
-                       font-weight: 900; margin-bottom: 2rem; 
-                       background: linear-gradient(45deg, var(--accent-white), var(--primary-red)); 
-                       -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
-                       background-clip: text;">Ready to Sync Up?</h2>
-
-            <p style="font-size: 1.25rem; color: rgba(255, 255, 255, 0.8); margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-                Join thousands of students and transform your academic journey. Connect, collaborate, and conquer with
-                Sync.
-            </p>
-
-            <button class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem; 
-                                               animation: ctaGlow 2s ease-in-out infinite alternate;">
-                Join the Community
-            </button>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div style="max-width: 800px; margin: 0 auto;">
-            <div class="logo" style="font-size: 3rem; margin-bottom: 2rem;">Sync</div>
-            <p style="color: rgba(255, 255, 255, 0.8); font-size: 1.2rem; margin-bottom: 2rem;">
-                Where Brains Meet Vibes
-            </p>
-
-            <div style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 3rem;">
-                <a href="#" style="color: rgba(255, 255, 255, 0.6); font-size: 2rem; 
-                                  transition: all 0.3s ease; text-decoration: none;"
-                    onmouseover="this.style.color='var(--primary-red)'; this.style.transform='translateY(-5px) scale(1.2)'"
-                    onmouseout="this.style.color='rgba(255, 255, 255, 0.6)'; this.style.transform='translateY(0) scale(1)'">
-                    <i class="fab fa-instagram"></i>
+        <!-- About Section -->
+       <!-- <section id="about" class="py-24">
+            <div class="container max-w-4xl mx-auto text-center">
+                <a href="philosophy.html" target="_blank">
+                    <h2 class="text-4xl font-bold mb-8 animate-on-scroll">Our Philosophy</h2>
                 </a>
-                <a href="#" style="color: rgba(255, 255, 255, 0.6); font-size: 2rem; 
-                                  transition: all 0.3s ease; text-decoration: none;"
-                    onmouseover="this.style.color='var(--primary-red)'; this.style.transform='translateY(-5px) scale(1.2)'"
-                    onmouseout="this.style.color='rgba(255, 255, 255, 0.6)'; this.style.transform='translateY(0) scale(1)'">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="#" style="color: rgba(255, 255, 255, 0.6); font-size: 2rem; 
-                                  transition: all 0.3s ease; text-decoration: none;"
-                    onmouseover="this.style.color='var(--primary-red)'; this.style.transform='translateY(-5px) scale(1.2)'"
-                    onmouseout="this.style.color='rgba(255, 255, 255, 0.6)'; this.style.transform='translateY(0) scale(1)'">
-                    <i class="fab fa-discord"></i>
-                </a>
-                <a href="#" style="color: rgba(255, 255, 255, 0.6); font-size: 2rem; 
-                                  transition: all 0.3s ease; text-decoration: none;"
-                    onmouseover="this.style.color='var(--primary-red)'; this.style.transform='translateY(-5px) scale(1.2)'"
-                    onmouseout="this.style.color='rgba(255, 255, 255, 0.6)'; this.style.transform='translateY(0) scale(1)'">
-                    <i class="fab fa-tiktok"></i>
-                </a>
+                <p class="text-lg md:text-xl text-gray-400 mb-8 animate-on-scroll">
+                    We believe that *learning is fundamentally social*. The traditional model of isolated study sessions
+                    is outdated. Sync is designed to be the modern-day library, a vibrant, digital hub where
+                    collaboration is at the core of every academic journey.
+                </p>
             </div>
+        </section>-->
 
-            <p style="color: rgba(255, 255, 255, 0.5); font-size: 0.9rem;">
-                &copy; 2024 Team SyncIng. Built with passion for the next generation of learners.
-            </p>
+        <!-- Team Section -->
+        <section id="team" class="py-24">
+            <div class="container">
+                <h2 class="text-4xl font-bold text-center mb-16 animate-on-scroll">Meet Team SyncIng</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Team members with more professional images/placeholders -->
+                    <div class="card-glass p-8 text-center animate-on-scroll" style="transition-delay: 0.1s;">
+                        <img src="https://res.cloudinary.com/dymaldtqv/image/upload/v1754910132/6f9be0c5-04da-4d40-80b9-bfc638286689.png" alt="Akruti Mishra"
+                            class="rounded-full mx-auto w-24 h-24 mb-4 border-2 border-primary-purple shadow-lg">
+                        <h3 class="text-xl font-bold">Akruti Mishra</h3>
+                        <!--<p class="text-gray-400">Full-Stack Developer</p>-->
+                        <p class="text-sm text-gray-500 mt-1">IPM05075</p>
+                    </div>
+                    <div class="card-glass p-8 text-center animate-on-scroll" style="transition-delay: 0.2s;">
+                        <img src="https://res.cloudinary.com/dymaldtqv/image/upload/v1754910152/6bb2b053-036f-4dbf-9324-f527d9cf39e2.png" alt="Ananya Gautam"
+                            class="rounded-full mx-auto w-24 h-24 mb-4 border-2 border-secondary-purple shadow-lg">
+                        <h3 class="text-xl font-bold">Ananya Gautam</h3>
+                        <!--<p class="text-gray-400">Product Designer</p>-->
+                        <p class="text-sm text-gray-500 mt-1">IPM05077</p>
+                    </div>
+                    <div class="card-glass p-8 text-center animate-on-scroll" style="transition-delay: 0.3s;">
+                        <img src="https://res.cloudinary.com/dymaldtqv/image/upload/v1754910209/ade738a6-45cf-46eb-8aa4-33d219d3d0e6.png" alt="Angel Sidhu"
+                            class="rounded-full mx-auto w-24 h-24 mb-4 border-2 border-neon-blue shadow-lg">
+                        <h3 class="text-xl font-bold">Angel Sidhu</h3>
+                        <!--<p class="text-gray-400">Data & Growth Analyst</p>-->
+                        <p class="text-sm text-gray-500 mt-1">IPM05078</p>
+                    </div>
+                    <div class="card-glass p-8 text-center animate-on-scroll" style="transition-delay: 0.4s;">
+                        <img src="https://res.cloudinary.com/dymaldtqv/image/upload/v1754910205/f28770ef-a7d5-4e19-89cc-0390a42d9477.png" alt="Ananya Jain"
+                            class="rounded-full mx-auto w-24 h-24 mb-4 border-2 border-primary-purple shadow-lg">
+                        <h3 class="text-xl font-bold">Ananya Jain</h3>
+                        <!--<p class="text-gray-400">Product Manager</p>-->
+                        <p class="text-sm text-gray-500 mt-1">IPM05160</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-24 text-center">
+            <div class="container animate-on-scroll">
+                <h2 class="text-4xl font-bold mb-4">Ready to Sync Up?</h2>
+                <p class="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+                    Join thousands of students and transform your academic journey. Connect, collaborate, and conquer
+                    with Sync.
+                </p>
+                <a href="#" class="btn-primary inline-block rounded-full px-10 py-4 text-lg font-bold">Join the
+                    Community</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-dark-card text-center text-gray-400 border-t border-gray-800">
+        <div class="container">
+            <div class="logo-text text-3xl mb-4">Sync</div>
+            <p class="mb-4">Where Brains Meet Vibes</p>
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="#" class="text-2xl hover:text-primary-purple transition-colors"><i
+                        class="fab fa-instagram"></i></a>
+                <a href="#" class="text-2xl hover:text-primary-purple transition-colors"><i
+                        class="fab fa-twitter"></i></a>
+                <a href="#" class="text-2xl hover:text-primary-purple transition-colors"><i
+                        class="fab fa-discord"></i></a>
+                <a href="#" class="text-2xl hover:text-primary-purple transition-colors"><i
+                        class="fab fa-tiktok"></i></a>
+            </div>
+            <p class="text-sm opacity-70">&copy; 2024 Team SyncIng. Built with passion for the next generation of
+                learners.</p>
         </div>
     </footer>
 
     <script>
-        // Custom Cursor
-        const cursor = document.querySelector('.cursor');
-        const cursorFollower = document.querySelector('.cursor-follower');
+        // --- Floating Particles Background JS ---
+        const particleContainer = document.querySelector('.animated-bg-particles');
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            const size = Math.random() * 20 + 10 + 'px';
+            particle.style.width = size;
+            particle.style.height = size;
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 10 + 's';
+            particle.style.animationDuration = Math.random() * 20 + 10 + 's';
+            particleContainer.appendChild(particle);
 
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-
-            setTimeout(() => {
-                cursorFollower.style.left = e.clientX + 'px';
-                cursorFollower.style.top = e.clientY + 'px';
-            }, 100);
-        });
-
-        // Matrix Rain Effect
-        function createMatrixRain() {
-            const matrixRain = document.getElementById('matrixRain');
-            const chars = '01SYNC01BRAINS01VIBES01';
-
-            setInterval(() => {
-                const column = document.createElement('div');
-                column.className = 'matrix-column';
-                column.style.left = Math.random() * 100 + '%';
-                column.style.animationDuration = (Math.random() * 3 + 2) + 's';
-
-                let text = '';
-                for (let i = 0; i < 20; i++) {
-                    text += chars[Math.floor(Math.random() * chars.length)] + '<br>';
-                }
-                column.innerHTML = text;
-
-                matrixRain.appendChild(column);
-
-                setTimeout(() => {
-                    if (column.parentNode) {
-                        column.remove();
-                    }
-                }, 5000);
-            }, 200);
+            setTimeout(() => particle.remove(), 30000); // Remove after animation
         }
+        setInterval(createParticle, 500);
 
-        // Particle System
-        function createParticleSystem() {
-            const particleSystem = document.getElementById('particleSystem');
 
-            setInterval(() => {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDuration = (Math.random() * 5 + 3) + 's';
-                particle.style.animationDelay = Math.random() * 2 + 's';
-
-                particleSystem.appendChild(particle);
-
-                setTimeout(() => {
-                    if (particle.parentNode) {
-                        particle.remove();
-                    }
-                }, 8000);
-            }, 150);
-        }
-
-        // Glitch Lines
-        function createGlitchLines() {
-            const glitchLines = document.getElementById('glitchLines');
-
-            setInterval(() => {
-                const line = document.createElement('div');
-                line.className = 'glitch-line';
-                line.style.top = Math.random() * 100 + '%';
-                line.style.animationDelay = Math.random() * 2 + 's';
-
-                glitchLines.appendChild(line);
-
-                setTimeout(() => {
-                    if (line.parentNode) {
-                        line.remove();
-                    }
-                }, 3000);
-            }, 800);
-        }
-
-        // Initialize all animations
-        createMatrixRain();
-        createParticleSystem();
-        createGlitchLines();
-
-        // Scroll animations
+        // --- Intersection Observer for scroll-triggered animations ---
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -359,21 +309,25 @@
             observer.observe(el);
         });
 
-        // Enhanced Pomodoro Timer
+        // --- Pomodoro Timer Logic ---
+        const timerDisplay = document.querySelector('.timer-display');
+        const startBtn = document.getElementById('start-timer');
+        const pauseBtn = document.getElementById('pause-timer');
+        const resetBtn = document.getElementById('reset-timer');
+
         let timerInterval;
         let isPaused = true;
-        let timeLeft = 25 * 60;
+        let timeLeft = 25 * 60; // 25 minutes in seconds
 
         function updateTimerDisplay() {
             const minutes = String(Math.floor(timeLeft / 60)).padStart(2, '0');
             const seconds = String(timeLeft % 60).padStart(2, '0');
-            document.getElementById('timerDisplay').textContent = `${minutes}:${seconds}`;
+            timerDisplay.textContent = `${minutes}:${seconds}`;
         }
 
         function startTimer() {
             if (isPaused) {
                 isPaused = false;
-                document.getElementById('startTimer').textContent = 'Pause';
                 timerInterval = setInterval(() => {
                     if (timeLeft > 0) {
                         timeLeft--;
@@ -381,64 +335,41 @@
                     } else {
                         clearInterval(timerInterval);
                         isPaused = true;
-                        document.getElementById('timerDisplay').textContent = "Time's up!";
-                        document.getElementById('startTimer').textContent = 'Reset';
+                        timerDisplay.textContent = "Time's up!";
                     }
                 }, 1000);
-            } else {
-                isPaused = true;
-                clearInterval(timerInterval);
-                document.getElementById('startTimer').textContent = 'Start';
             }
         }
 
-        document.getElementById('startTimer').addEventListener('click', startTimer);
+        function pauseTimer() {
+            if (!isPaused) {
+                isPaused = true;
+                clearInterval(timerInterval);
+            }
+        }
 
-        // Portal Generator
-        document.getElementById('generatePortal').addEventListener('click', function () {
-            const roomName = "SyncRoom_" + Math.random().toString(36).substr(2, 8);
-            const link = `https://meet.jit.si/${roomName}`;
+        function resetTimer() {
+            pauseTimer();
+            timeLeft = 25 * 60;
+            updateTimerDisplay();
+            timerDisplay.textContent = "25:00";
+        }
 
-            const portalElement = document.getElementById('portalLink');
-            portalElement.innerHTML = `<a href="${link}" target="_blank" style="color: var(--primary-red); text-decoration: underline; text-shadow: 0 0 10px var(--primary-red);">${link}</a>`;
-            portalElement.style.display = 'block';
+        startBtn.addEventListener('click', startTimer);
+        pauseBtn.addEventListener('click', pauseTimer);
+        resetBtn.addEventListener('click', resetTimer);
+
+        // --- Random Link Generator Logic ---
+        const generateLinkBtn = document.getElementById('generate-link-btn');
+        const generatedLinkText = document.getElementById('generated-link');
+
+        generateLinkBtn.addEventListener('click', () => {
+            const randomId = Math.random().toString(36).substring(2, 8) + Math.random().toString(36).substring(2, 8);
+            const link = `https://sync.com/meet/${randomId}`;
+            generatedLinkText.textContent = link;
+            generatedLinkText.classList.remove('hidden');
         });
-
-        // Add hover effects for buttons
-        document.querySelectorAll('button').forEach(button => {
-            button.addEventListener('mouseenter', function () {
-                this.style.transform = 'scale(1.1) translateY(-5px)';
-            });
-
-            button.addEventListener('mouseleave', function () {
-                this.style.transform = 'scale(1) translateY(0)';
-            });
-        });
-
-        // Add clicking sound effect (visual feedback)
-        document.querySelectorAll('button, a').forEach(element => {
-            element.addEventListener('click', function () {
-                this.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    this.style.transform = '';
-                }, 100);
-            });
-        });
-
-        // Parallax scroll effect
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const parallax = document.querySelector('.neural-network');
-            const speed = scrolled * 0.5;
-            parallax.style.transform = `translateY(${speed}px)`;
-        });
-
-        // Random color shifts for dramatic effect
-        setInterval(() => {
-            const randomHue = Math.floor(Math.random() * 360);
-            document.documentElement.style.setProperty('--accent-glow', `hsl(${randomHue}, 100%, 50%)`);
-        }, 5000);
     </script>
-
 </body>
+
 </html>
