@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join Sync - Where Brains Meet Vibes</title>
+  <link rel="stylesheet" href="SignUp-CSS.css">
+</head>
+<body>
+  <div class="floating-elements">
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+  </div>
+
+  <div class="container">
+    <div class="header">
+      <div class="logo">Sync</div>
+      <div class="subtitle">Join the Community</div>
+      <div class="description">Where brains meet vibes - Connect with Gen-Z students and conquer your academic goals together</div>
+    </div>
+
+    <form id="signForm">
+      <div class="form-group">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="college">College/University</label>
+        <input type="text" id="college" name="college" placeholder="Your institution name">
+      </div>
+
+      <div class="form-group">
+        <label for="course">Course/Major</label>
+        <input type="text" id="course" name="course" placeholder="e.g., Computer Science, Business">
+      </div>
+
+      <div class="form-group">
+        <label for="year">Academic Year</label>
+        <select id="year" name="year" required>
+          <option value="">Select your year</option>
+          <option value="1">1st Year</option>
+          <option value="2">2nd Year</option>
+          <option value="3">3rd Year</option>
+          <option value="4">4th Year</option>
+          <option value="5">5th Year</option>
+        </select>
+      </div>
+
+      <button type="submit" class="submit-btn">Create Your Account</button>
+    </form>
+
+    <div id="msg"></div>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBkNhvZdqEVYZK2tNOiKZoBBhCTuu-pjK0",
+      authDomain: "sync-resources.firebaseapp.com",
+      projectId: "sync-resources",
+      storageBucket: "sync-resources.firebasestorage.app",
+      messagingSenderId: "354993436468",
+      appId: "1:354993436468:web:c9f079eab2563ec88b5761",
+      measurementId: "G-69VYEWS4LB"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    const form = document.getElementById('signForm');
+    const msgEl = document.getElementById('msg');
+
+    function showMessage(text, type) {
+      msgEl.textContent = text;
+      msgEl.className = `show ${type}`;
+      setTimeout(() => {
+        msgEl.classList.remove('show');
+      }, 5000);
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const fullName = form.fullName.value.trim();
+      const email = form.email.value.trim();
+      const college = form.college.value.trim();
+      const course = form.course.value.trim();
+      const year = form.year.value;
+
+      if (!fullName || !email || !year) {
+        showMessage("Please fill in all required fields.", "error");
+        return;
+      }
+
+      try {
+        await addDoc(collection(db, "userLogin"), {
+          fullName,
+          email,
+          college: college || null,
+          course: course || null,
+          year: parseInt(year, 10),
+          createdAt: serverTimestamp()
+        });
+        showMessage("🎉 Welcome to Sync! Your account has been created successfully.", "success");
+        form.reset();
+      } catch (error) {
+        console.error("Error adding document: ", error);
+        showMessage("❌ Something went wrong. Please try again.", "error");
+      }
+    });
+  </script>
+</body>
+</html>
