@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /hidden page.html
+
+Sitemap: https://akruti205.github.io/Sync-Web-Dev-/sitemap.xml
