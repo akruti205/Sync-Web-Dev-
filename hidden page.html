@@ -5,6 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hidden Page</title>
+    <script>
+    var password = prompt("Enter Password:");
+    if (password !== "B14 Sync") {
+      document.body.innerHTML = "<h2>Access Denied</h2>";
+    }
+  </script>
     <link rel="stylesheet" href="hiddenpagestyle.css">
     <link rel="favicon" href="favicon.png">
 </head>
@@ -215,4 +221,5 @@
 </body>
 
 </html>
+
 
