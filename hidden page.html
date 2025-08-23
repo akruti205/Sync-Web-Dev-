@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hidden Page</title>
+    <link rel="stylesheet" href="hiddenpagestyle.css">
+    <link rel="favicon" href="favicon.png">
     <script>
     var password = prompt("Enter Password:");
     if (password !== "B14 Sync") {
       document.body.innerHTML = "<h2>Access Denied</h2>";
     }
   </script>
-    <link rel="stylesheet" href="hiddenpagestyle.css">
-    <link rel="favicon" href="favicon.png">
 </head>
 
 <body>
@@ -216,10 +216,476 @@
             Our structured content, optimized metadata, and semantic HTML markup enhance search engine understanding while making the platform more findable by our target audience. Continued SEO improvements will further enhance our visibility in academic and educational search contexts.
         </h3>
     </p>
+    <div class="requirements-checklist">
+        
+    <h1> WBD Project requirements-checklist</h1>
+    <style>
+        .checklist-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #000;
+        }
+        
+        .checklist-section {
+            background: #000;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(255,76,76,0.3);
+            border: 1px solid #ff4c4c;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #ff4c4c;
+        }
+        
+        .section-icon {
+            margin-right: 10px;
+            font-size: 20px;
+        }
+        
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 5px 0;
+        }
+        
+        .checklist-item label {
+            flex-grow: 1;
+            margin-right: 15px;
+            color: #fff;
+            font-size: 14px;
+        }
+        
+        .status-dropdown {
+            padding: 5px 10px;
+            border: 1px solid #ff4c4c;
+            border-radius: 4px;
+            font-size: 12px;
+            min-width: 120px;
+            background-color: #000;
+            color: #fff;
+        }
+        
+        .status-dropdown option[value="done"] {
+            background-color: #d4edda;
+            color: #000;
+        }
+        
+        .status-dropdown option[value="in-progress"] {
+            background-color: #fff3cd;
+            color: #000;
+        }
+        
+        .status-dropdown option[value="not-applicable"] {
+            background-color: #f8d7da;
+            color: #000;
+        }
+        
+        .bullet-point {
+            margin-right: 8px;
+            color: #fff;
+        }
+    </style>
 
+    <div class="checklist-container">
+        <!-- Core Website Requirements -->
+        <div class="checklist-section">
+            <div class="section-header">
+                <span class="section-icon"></span>
+                Core Website Requirements
+            </div>
+            
+            <div class="checklist-item">
+                <span class="bullet-point">•</span>
+                <label>Stack: Use HTML, CSS, and JavaScript as main technologies</label>
+                <select class="status-dropdown">
+                    <option value="done">Done</option>
+                    <option value="in-progress">Under Process</option>
+                    <option value="not-applicable">Not applicable</option>
+                </select>
+            </div>
+            
+            <div class="checklist-item">
+                <span class="bullet-point">•</span>
+                <label>Page Count: 5-6 main pages</label>
+                <select class="status-dropdown">
+                    <option value="done">Done</option>
+                    <option value="in-progress">Under Process</option>
+                    <option value="not-applicable">Not applicable</option>
+                </select>
+            </div>
+            
+            <div class="checklist-item">
+                <span class="bullet-point">•</span>
+                <label>Submission: Complete & submit before deadline</label>
+                <select class="status-dropdown">
+                    <option value="done">Done</option>
+                    <option value="in-progress">Under Process</option>
+                    <option value="not-applicable">Not applicable</option>
+                </select>
+            </div>
+            
+            <div class="checklist-item">
+                <span class="bullet-point">•</span>
+                <label>Public Availability: Site & code publicly accessible</label>
+                <select class="status-dropdown">
+                    <option value="done">Done</option>
+                    <option value="in-progress">Under Process</option>
+                    <option value="not-applicable">Not applicable</option>
+                </select>
+            </div>
+            
+            <div class="checklist-item">
+                <span class="bullet-point">•</span>
+                <label>Semantic HTML: Use &lt;header&gt;, &lt;footer&gt;, &lt;nav&gt;, etc.</label>
+                <select class="status-dropdown">
+                    <option value="done">Done</option>
+                    <option value="in-progress">Under Process</option>
+                    <option value="not-applicable">Not applicable</option>
+                </select>
+            </div>
+            
+            <div class="checklist-item">
+                <span class="bullet-point">•</span>
+                <label>Central CSS: Single global stylesheet</label>
+                <select class="status-dropdown">
+                    <option value="done">Done</option>
+                    <option value="in-progress">Under Process</option>
+                    <option value="not-applicable">Not applicable</option>
+                </select>
+            </div>
+            
+            <div class="checklist-item">
+                <span class="bullet-point">•</span>
+                <label>Framework Use: Bootstrap (or approved CSS framework)</label>
+                <select class="status-dropdown">
+                    <option value="not-applicable">Not applicable</option>
+                    <option value="done">Done</option>
+                    <option value="in-progress">Under Process</option>
+                </select>
+            </div>
+            
+            <div class="checklist-item">
+                <span class="bullet-point">•</span>
+                <label>Accessible Forms & Validation: All forms accessible with clear validation</label>
+                <select class="status-dropdown">
+                    <option value="done">Done</option>
+                    <option value="in-progress">Under Process</option>
+                    <option value="not-applicable">Not applicable</option>
+                </select>
+            </div>
+        </div>
 
+        <div class="checklist-section">
+            <div class="section-header">
+                <span class="section-icon"></span>
+                Design & User Experience
+            </div>
+            
+            <div class="checklist-item">
+                <span class="bullet-point">•</span>
+                <label>Consistent Design: Uniform look & documented method</label>
+                <select class="status-dropdown">
+                    <option value="done">Done</option>
+                    <option value="in-progress">Under Process</option>
+                    <option value="not-applicable">Not applicable</option>
+                </select>
+            </div>
+            
+            <div class="checklist-item">
+                <span class="bullet-point">•</span>
+                <label>Mobile Responsive: Works on phones & tablets</label>
+                <select class="status-dropdown">
+                    <option value="done">Done</option>
+                    <option value="in-progress">Under Process</option>
+                    <option value="not-applicable">Not applicable</option>
+                </select>
+            </div>
+            
+            <div class="checklist-item">
+                <span class="bullet-point">•</span>
+                <label>Favicon: Add small site icon in browser tabs</label>
+                <select class="status-dropdown">
+                    <option value="done">Done</option>
+                    <option value="in-progress">Under Process</option>
+                    <option value="not-applicable">Not applicable</option>
+                </select>
+            </div>
+            
+            <div class="checklist-item">
+                <span class="bullet-point">•</span>
+                <label>Icons on Links: Icon for every navigation/action link</label>
+                <select class="status-dropdown">
+                    <option value="in-progress">Under Process</option>
+                    <option value="done">Done</option>
+                    <option value="not-applicable">Not applicable</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="checklist-section">
+            <div class="section-header">
+                <span class="section-icon"></span>
+                Accessibility & Performance
+            </div>
+            
+            <div class="checklist-item">
+                <span class="bullet-point">•</span>
+                <label>Accessibility: Screen-readable & accessible to everyone</label>
+                <select class="status-dropdown">
+                    <option value="done">Done</option>
+                    <option value="in-progress">Under Process</option>
+                    <option value="not-applicable">Not applicable</option>
+                </select>
+            </div>
+            
+            <div class="checklist-item">
+                <span class="bullet-point">•</span>
+                <label>Performance: Optimized for fast browser rendering</label>
+                <select class="status-dropdown">
+                    <option value="done">Done</option>
+                    <option value="in-progress">Under Process</option>
+                    <option value="not-applicable">Not applicable</option>
+                </select>
+            </div>
+            
+            <div class="checklist-item">
+                <span class="bullet-point">•</span>
+                <label>Images: At least one optimized image on every page</label>
+                <select class="status-dropdown">
+                    <option value="done">Done</option>
+                    <option value="in-progress">Under Process</option>
+                    <option value="not-applicable">Not applicable</option>
+                </select>
+            </div>
+            
+            <div class="checklist-item">
+                <span class="bullet-point">•</span>
+                <label>Image Optimization: Use taught techniques & document process</label>
+                <select class="status-dropdown">
+                    <option value="done">Done</option>
+                    <option value="in-progress">Under Process</option>
+                    <option value="not-applicable">Not applicable</option>
+                </select>
+            </div>
+            
+            <div class="checklist-item">
+                <span class="bullet-point">•</span>
+                <label>Figure Labelling: "Lower is better" / "Higher is better" labels</label>
+                <select class="status-dropdown">
+                    <option value="done">Done</option>
+                    <option value="in-progress">Under Process</option>
+                    <option value="not-applicable">Not applicable</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="checklist-section">
+            <div class="section-header">
+                <span class="section-icon"></span>
+                Security & Configuration
+            </div>
+            
+            <div class="checklist-item">
+                <span class="bullet-point">•</span>
+                <label>Security.txt: File at site root with security contact info</label>
+                <select class="status-dropdown">
+                    <option value="done">Done</option>
+                    <option value="in-progress">Under Process</option>
+                    <option value="not-applicable">Not applicable</option>
+                </select>
+            </div>
+            
+            <div class="checklist-item">
+                <span class="bullet-point">•</span>
+                <label>Robots.txt: File at site root indicating indexable parts</label>
+                <select class="status-dropdown">
+                    <option value="done">Done</option>
+                    <option value="in-progress">Under Process</option>
+                    <option value="not-applicable">Not applicable</option>
+                </select>
+            </div>
+            
+            <div class="checklist-item">
+                <span class="bullet-point">•</span>
+                <label>Public URL: Provide public URL path for robots.txt file</label>
+                <select class="status-dropdown">
+                    <option value="done">Done</option>
+                    <option value="in-progress">Under Process</option>
+                    <option value="not-applicable">Not applicable</option>
+                </select>
+            </div>
+            
+            <div class="checklist-item">
+                <span class="bullet-point">•</span>
+                <label>HTTPS (SSL): Serve site securely over HTTPS</label>
+                <select class="status-dropdown">
+                    <option value="done">Done</option>
+                    <option value="in-progress">Under Process</option>
+                    <option value="not-applicable">Not applicable</option>
+                </select>
+            </div>
+            
+            <div class="checklist-item">
+                <span class="bullet-point">•</span>
+                <label>Ngrok Hosting: Temporary testing via ngrok tunnel</label>
+                <select class="status-dropdown">
+                    <option value="not-applicable">Not applicable</option>
+                    <option value="done">Done</option>
+                    <option value="in-progress">Under Process</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="checklist-section">
+            <div class="section-header">
+                <span class="section-icon">🔍</span>
+                SEO & Marketing
+            </div>
+            
+            <div class="checklist-item">
+                <span class="bullet-point">•</span>
+                <label>SEO Keywords: Selected with reasoning documented</label>
+                <select class="status-dropdown">
+                    <option value="done">Done</option>
+                    <option value="in-progress">Under Process</option>
+                    <option value="not-applicable">Not applicable</option>
+                </select>
+            </div>
+            
+            <div class="checklist-item">
+                <span class="bullet-point">•</span>
+                <label>SEO Ranking Check: Google site & record page/rank</label>
+                <select class="status-dropdown">
+                    <option value="done">Done</option>
+                    <option value="in-progress">Under Process</option>
+                    <option value="not-applicable">Not applicable</option>
+                </select>
+            </div>
+            
+            <div class="checklist-item">
+                <span class="bullet-point">•</span>
+                <label>Sitemap: HTML or XML sitemap with all important pages</label>
+                <select class="status-dropdown">
+                    <option value="done">Done</option>
+                    <option value="in-progress">Under Process</option>
+                    <option value="not-applicable">Not applicable</option>
+                </select>
+            </div>
+            
+            <div class="checklist-item">
+                <span class="bullet-point">•</span>
+                <label>Social Buttons: Share, like & subscribe buttons implemented</label>
+                <select class="status-dropdown">
+                    <option value="done">Done</option>
+                    <option value="in-progress">Under Process</option>
+                    <option value="not-applicable">Not applicable</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="checklist-section">
+            <div class="section-header">
+                <span class="section-icon"></span>
+                Hidden/Instructors-only Page
+            </div>
+            
+            <div class="checklist-item">
+                <span class="bullet-point">•</span>
+                <label>Access Restriction: Not accessible to public (obscure URL)</label>
+                <select class="status-dropdown">
+                    <option value="in-progress">Under Process</option>
+                    <option value="done">Done</option>
+                    <option value="not-applicable">Not applicable</option>
+                </select>
+            </div>
+            
+            <div class="checklist-item">
+                <span class="bullet-point">•</span>
+                <label>Handwritten HTML: Coded manually without auto-generation</label>
+                <select class="status-dropdown">
+                    <option value="done">Done</option>
+                    <option value="in-progress">Under Process</option>
+                    <option value="not-applicable">Not applicable</option>
+                </select>
+            </div>
+            
+            <div class="checklist-item">
+                <span class="bullet-point">•</span>
+                <label>Team Table: Table with team members & roles</label>
+                <select class="status-dropdown">
+                    <option value="done">Done</option>
+                    <option value="in-progress">Under Process</option>
+                    <option value="not-applicable">Not applicable</option>
+                </select>
+            </div>
+            
+            <div class="checklist-item">
+                <span class="bullet-point">•</span>
+                <label>Design Philosophy: Written goals, choices & reasoning</label>
+                <select class="status-dropdown">
+                    <option value="done">Done</option>
+                    <option value="in-progress">Under Process</option>
+                    <option value="not-applicable">Not applicable</option>
+                </select>
+            </div>
+            
+            <div class="checklist-item">
+                <span class="bullet-point">•</span>
+                <label>Testimonial: Sample customer testimonial added</label>
+                <select class="status-dropdown">
+                    <option value="done">Done</option>
+                    <option value="in-progress">Under Process</option>
+                    <option value="not-applicable">Not applicable</option>
+                </select>
+            </div>
+            
+            <div class="checklist-item">
+                <span class="bullet-point">•</span>
+                <label>Consistent Design: Hidden page matches rest of site visually</label>
+                <select class="status-dropdown">
+                    <option value="done">Done</option>
+                    <option value="in-progress">Under Process</option>
+                    <option value="not-applicable">Not applicable</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="checklist-section">
+            <div class="section-header">
+                <span class="section-icon"></span>
+                Special Features
+            </div>
+            
+            <div class="checklist-item">
+                <span class="bullet-point">•</span>
+                <label>LinkedIn Profile Link: Optional professional profile link</label>
+                <select class="status-dropdown">
+                    <option value="not-applicable">Not applicable</option>
+                    <option value="done">Done</option>
+                    <option value="in-progress">Under Process</option>
+                </select>
+            </div>
+            
+            <div class="checklist-item">
+                <span class="bullet-point">•</span>
+                <label>Google Map: Office/location map on "About Us" page</label>
+                <select class="status-dropdown">
+                    <option value="done">Done</option>
+                    <option value="in-progress">Under Process</option>
+                    <option value="not-applicable">Not applicable</option>
+                </select>
+            </div>
+        </div>
+    </div>
 </body>
-
 </html>
-
-
